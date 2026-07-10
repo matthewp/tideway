@@ -1,0 +1,36 @@
+/* cta-band — closing call to action on a dark field. */
+.cta-band {
+  padding-block: var(--space-24);
+}
+
+.cta-band__panel {
+  position: relative;
+  overflow: hidden;
+  padding: var(--space-16) var(--space-8);
+  border-radius: var(--radius-2xl);
+  text-align: center;
+  background-image: linear-gradient(120deg, var(--color-slate-900), var(--color-blue-700));
+  box-shadow: var(--shadow-lg);
+}
+
+.cta-band__title {
+  font-size: var(--text-4xl);
+  font-weight: var(--font-extrabold);
+  letter-spacing: var(--tracking-tight);
+  color: var(--color-white);
+}
+
+.cta-band__lede {
+  max-width: 40ch;
+  margin: var(--space-4) auto 0;
+  font-size: var(--text-lg);
+  color: var(--color-slate-300);
+}
+
+.cta-band__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-4);
+  margin-top: var(--space-8);
+}

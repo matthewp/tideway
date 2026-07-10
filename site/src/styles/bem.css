@@ -1,0 +1,6 @@
+/* bem — the section contrasting a tangled cascade with flat Tideway classes. */
+.bem {
+  padding-block: var(--space-24);
+  border-block: var(--border-1) solid var(--border);
+  background-color: var(--surface-subtle);
+}

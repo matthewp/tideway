@@ -1,0 +1,47 @@
+/* tokens-demo — the section showing token scales (color, spacing, type) live. */
+.tokens-demo {
+  padding-block: var(--space-24);
+}
+
+.tokens-demo__grid {
+  display: grid;
+  gap: var(--space-8);
+  margin-top: var(--space-16);
+}
+
+.tokens-demo__panel {
+  padding: var(--space-8);
+  border: var(--border-1) solid var(--border);
+  border-radius: var(--radius-xl);
+  background-color: var(--surface-raised);
+}
+
+.tokens-demo__label {
+  margin-bottom: var(--space-6);
+  font-size: var(--text-sm);
+  font-weight: var(--font-semibold);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.tokens-demo__foot {
+  margin-top: var(--space-10);
+  font-size: var(--text-base);
+  color: var(--text-muted);
+}
+
+.tokens-demo__link {
+  font-weight: var(--font-semibold);
+  color: var(--accent-text);
+}
+
+@media (min-width: 1024px) {
+  .tokens-demo__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .tokens-demo__panel--wide {
+    grid-column: 1 / -1;
+  }
+}

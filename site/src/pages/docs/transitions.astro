@@ -1,0 +1,61 @@
+---
+import DocsLayout from "../../layouts/DocsLayout.astro";
+
+const durations = ["75", "100", "150", "200", "300", "500", "700", "1000"];
+
+const easings = [
+	["linear", "linear"],
+	["in", "cubic-bezier(0.4, 0, 1, 1)"],
+	["out", "cubic-bezier(0, 0, 0.2, 1)"],
+	["in-out", "cubic-bezier(0.4, 0, 0.2, 1)"],
+];
+---
+
+<DocsLayout
+	title="Transition tokens"
+	description="Tideway transition tokens — durations and easing curves."
+	active="transitions"
+>
+	<article class="doc">
+		<p class="doc__eyebrow">Tokens</p>
+		<h1 class="doc__title">Transitions</h1>
+		<p class="doc__lead">
+			Durations and easing curves for motion. The default transition is
+			<code class="doc__code">--duration-150</code> with <code class="doc__code">--ease-in-out</code>.
+		</p>
+
+		<section class="doc__section">
+			<h2 class="doc__section-title">Duration</h2>
+			<div class="token-table">
+				{durations.map((name) => (
+					<div class="token-table__row">
+						<div class="token-table__meta">
+							<span class="token-table__name">--duration-{name}</span>
+							<span class="token-table__value">{name}ms</span>
+						</div>
+						<div class="token-table__preview">
+							<span class="token-table__note">{name}ms</span>
+						</div>
+					</div>
+				))}
+			</div>
+		</section>
+
+		<section class="doc__section">
+			<h2 class="doc__section-title">Easing</h2>
+			<div class="token-table">
+				{easings.map(([name, value]) => (
+					<div class="token-table__row">
+						<div class="token-table__meta">
+							<span class="token-table__name">--ease-{name}</span>
+							<span class="token-table__value">{value}</span>
+						</div>
+						<div class="token-table__preview">
+							<span class="token-table__note">{value}</span>
+						</div>
+					</div>
+				))}
+			</div>
+		</section>
+	</article>
+</DocsLayout>

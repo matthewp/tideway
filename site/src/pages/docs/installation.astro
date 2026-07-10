@@ -1,0 +1,87 @@
+---
+import DocsLayout from "../../layouts/DocsLayout.astro";
+---
+
+<DocsLayout
+	title="Installation"
+	description="Install Tideway's skills into any coding agent with the skills CLI, or as a plugin in Claude Code."
+	active="installation"
+>
+	<article class="doc">
+		<p class="doc__eyebrow">Getting started</p>
+		<h1 class="doc__title">Installation</h1>
+		<p class="doc__lead">
+			Tideway ships as agent skills. Install them into any coding agent with the generic
+			<code class="doc__code">skills</code> CLI, or add them as a plugin in Claude Code. Or skip the
+			CLI entirely and let your agent set it up from
+			<a class="doc__link" href="/start.md">start.md</a>.
+		</p>
+
+		<section class="doc__section">
+			<h2 class="doc__section-title">Any coding agent</h2>
+			<p class="doc__text">
+				The <code class="doc__code">skills</code> CLI installs Tideway's skills into whatever agent
+				you use — Cursor, Codex, opencode, Windsurf, and dozens of others. It reads them straight from
+				the GitHub repo, no npm package involved. From your project root:
+			</p>
+			<pre class="doc__pre"><code>npx skills add matthewp/tideway</code></pre>
+			<p class="doc__text">
+				That adds all four skills — <code class="doc__code">style</code>,
+				<code class="doc__code">review</code>, <code class="doc__code">prune</code>, and
+				<code class="doc__code">migrate</code>. To see what's in the repo first, or to add just one:
+			</p>
+			<pre class="doc__pre"><code><span class="doc__comment"># list the skills in the repo</span>
+npx skills add matthewp/tideway <span class="doc__flag">--list</span>
+
+<span class="doc__comment"># install a single skill</span>
+npx skills add matthewp/tideway <span class="doc__flag">--skill</span> style</code></pre>
+			<p class="doc__text">
+				Skills install into the current project by default. Target a specific agent with
+				<code class="doc__code">-a</code>, install globally for every project with
+				<code class="doc__code">-g</code>, and skip the prompts with <code class="doc__code">-y</code>:
+			</p>
+			<pre class="doc__pre"><code>npx skills add matthewp/tideway <span class="doc__flag">-a</span> cursor <span class="doc__flag">-g -y</span></code></pre>
+			<p class="doc__text">
+				Supported agent identifiers include <code class="doc__code">claude-code</code>,
+				<code class="doc__code">cursor</code>, <code class="doc__code">codex</code>,
+				<code class="doc__code">opencode</code>, and <code class="doc__code">windsurf</code>, among many
+				more.
+			</p>
+		</section>
+
+		<section class="doc__section">
+			<h2 class="doc__section-title">Claude Code</h2>
+			<p class="doc__text">
+				In Claude Code, install Tideway as a plugin from its marketplace:
+			</p>
+			<pre class="doc__pre"><code>/plugin marketplace add matthewp/tideway
+/plugin install tideway@tideway</code></pre>
+			<p class="doc__text">
+				Developing against a local checkout instead? Start Claude Code pointed at the plugin directory:
+			</p>
+			<pre class="doc__pre"><code>claude --plugin-dir /path/to/tideway</code></pre>
+			<p class="doc__text">
+				Once installed, the <code class="doc__code">style</code> skill triggers on its own whenever you
+				write or edit CSS. Invoke any skill explicitly with <code class="doc__code">/tideway:style</code>,
+				<code class="doc__code">/tideway:review</code>, <code class="doc__code">/tideway:prune</code>, or
+				<code class="doc__code">/tideway:migrate</code>.
+			</p>
+		</section>
+
+		<section class="doc__section">
+			<h2 class="doc__section-title">Next</h2>
+			<div class="doc__list">
+				<p class="doc__item">
+					Create a <code class="doc__code">tokens.css</code> and start styling — the
+					<a class="doc__link" href="/docs/style">style skill</a> covers the rules and workflow.
+				</p>
+				<p class="doc__item">
+					Browse the <a class="doc__link" href="/docs/colors">token scales</a> every value comes from.
+				</p>
+				<p class="doc__item">
+					Wire up dark mode with the <a class="doc__link" href="/docs/theming">theming guide</a>.
+				</p>
+			</div>
+		</section>
+	</article>
+</DocsLayout>

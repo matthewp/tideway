@@ -1,0 +1,4 @@
+/* migrate — the section showing an existing project lifted onto Tideway. */
+.migrate {
+  padding-block: var(--space-24);
+}

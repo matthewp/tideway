@@ -1,0 +1,67 @@
+---
+import DocsLayout from "../../layouts/DocsLayout.astro";
+
+const shades = [50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 950];
+
+const chromatic = [
+	"red", "orange", "amber", "yellow", "lime", "green", "emerald", "teal",
+	"cyan", "sky", "blue", "indigo", "violet", "purple", "fuchsia", "pink", "rose",
+];
+
+const neutral = ["slate", "gray", "zinc", "neutral", "stone", "mauve", "olive", "mist", "taupe"];
+---
+
+<DocsLayout
+	title="Color tokens"
+	description="The Tideway color palette — 26 hues across 11 shades, in OKLCH."
+	active="colors"
+>
+	<article class="doc">
+		<p class="doc__eyebrow">Tokens</p>
+		<h1 class="doc__title">Colors</h1>
+		<p class="doc__lead">
+			26 hues across 11 shades, named <code class="doc__code">--color-&#123;hue&#125;-&#123;shade&#125;</code>.
+			Values are OKLCH, so lightness steps are perceptually even — two hues at the same shade carry the
+			same visual weight.
+		</p>
+
+		<section class="doc__section">
+			<h2 class="doc__section-title">Chromatic</h2>
+			<div class="palette">
+				{chromatic.map((hue) => (
+					<div class="palette__row">
+						<p class="palette__name">{hue}</p>
+						<div class="palette__chips">
+							{shades.map((shade) => (
+								<div class="swatch">
+									<div class="swatch__chip" style={`background-color: var(--color-${hue}-${shade})`}></div>
+									<span class="swatch__shade">{shade}</span>
+								</div>
+							))}
+						</div>
+					</div>
+				))}
+			</div>
+		</section>
+
+		<section class="doc__section">
+			<h2 class="doc__section-title">Neutral</h2>
+			<p class="doc__text">Pick one neutral per project and stay with it.</p>
+			<div class="palette">
+				{neutral.map((hue) => (
+					<div class="palette__row">
+						<p class="palette__name">{hue}</p>
+						<div class="palette__chips">
+							{shades.map((shade) => (
+								<div class="swatch">
+									<div class="swatch__chip" style={`background-color: var(--color-${hue}-${shade})`}></div>
+									<span class="swatch__shade">{shade}</span>
+								</div>
+							))}
+						</div>
+					</div>
+				))}
+			</div>
+		</section>
+	</article>
+</DocsLayout>

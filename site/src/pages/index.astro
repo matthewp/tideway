@@ -1,0 +1,680 @@
+---
+import "../styles/main.css";
+
+const palette = [
+	{ name: "Blue", token: "blue" },
+	{ name: "Slate", token: "slate" },
+];
+const shades = [50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 950];
+
+const spacing = [
+	{ token: "--space-1", value: "0.25rem" },
+	{ token: "--space-2", value: "0.5rem" },
+	{ token: "--space-4", value: "1rem" },
+	{ token: "--space-8", value: "2rem" },
+	{ token: "--space-12", value: "3rem" },
+	{ token: "--space-16", value: "4rem" },
+];
+
+const type = [
+	{ token: "--text-sm", mod: "sm" },
+	{ token: "--text-base", mod: "base" },
+	{ token: "--text-lg", mod: "lg" },
+	{ token: "--text-xl", mod: "xl" },
+	{ token: "--text-2xl", mod: "2xl" },
+	{ token: "--text-4xl", mod: "4xl" },
+];
+
+const skills = [
+	{
+		slug: "/style",
+		href: "/docs/style",
+		body: "Writes CSS from the tokens and strict BEM. The core skill — it kicks in on its own whenever your agent touches a stylesheet.",
+	},
+	{
+		slug: "/review",
+		href: "/docs/review",
+		body: "Checks your changes against the conventions — off-scale values, inlined tokens, direct palette use, BEM slips — and reports before it edits.",
+	},
+	{
+		slug: "/prune",
+		href: "/docs/prune",
+		body: "Finds classes you define but never use and clears the dead rules. Reliable because every selector is one flat, searchable name.",
+	},
+	{
+		slug: "/migrate",
+		href: "/docs/migrate",
+		body: "Lifts an existing project — Tailwind, CSS modules, plain CSS — onto the tokens and BEM without changing how it looks.",
+	},
+];
+
+const noLock = [
+	{
+		lead: "No build step or runtime",
+		text: "What ships is a plain .css file. Nothing to execute in the browser, nothing to configure in your bundler.",
+	},
+	{
+		lead: "No dependency to install",
+		text: "Tideway isn't in your package.json, so there's nothing to version, update, or audit for vulnerabilities.",
+	},
+	{
+		lead: "No classes to memorize",
+		text: "Your agent knows the tokens. You describe the UI in plain language and read normal CSS back.",
+	},
+	{
+		lead: "No config in your repo",
+		text: "The conventions live in the skill, not a file you have to maintain and keep in sync.",
+	},
+	{
+		lead: "No generated soup",
+		text: "Every selector is a legible, hand-editable BEM class — the same CSS you'd have written by hand.",
+	},
+	{
+		lead: "Drop it whenever",
+		text: "Remove the skill and the stylesheet keeps working on its own. There is nothing to rip out.",
+	},
+];
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="color-scheme" content="light dark" />
+		<script is:inline>
+			const t = localStorage.getItem("theme");
+			if (t === "light" || t === "dark") document.documentElement.dataset.theme = t;
+		</script>
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="generator" content={Astro.generator} />
+		<meta
+			name="description"
+			content="Tideway is a CSS design system your coding agent drives. Give it the skill and it writes consistent, plain CSS — fixed tokens, strict BEM — while you keep vibe coding."
+		/>
+		<title>Tideway — Own your styles</title>
+	</head>
+	<body>
+		<header class="site-nav">
+			<nav class="site-nav__inner container">
+				<a class="site-nav__brand" href="/">
+					<svg class="site-nav__mark" viewBox="0 0 32 32" aria-hidden="true">
+						<defs>
+							<linearGradient id="mark-gradient" x1="0" y1="0" x2="1" y2="1">
+								<stop offset="0" style="stop-color: var(--color-blue-600)"></stop>
+								<stop offset="1" style="stop-color: var(--color-cyan-500)"></stop>
+							</linearGradient>
+							<clipPath id="mark-clip">
+								<rect width="32" height="32" rx="9"></rect>
+							</clipPath>
+						</defs>
+						<g clip-path="url(#mark-clip)">
+							<rect width="32" height="32" fill="url(#mark-gradient)"></rect>
+							<path
+								d="M-2 20 Q 6 15 14 20 T 30 20 T 46 20 V 34 H -2 Z"
+								fill="var(--color-white)"
+								opacity="0.9"
+							></path>
+							<path
+								d="M-2 24 Q 6 19 14 24 T 30 24 T 46 24 V 34 H -2 Z"
+								fill="var(--color-white)"
+								opacity="0.55"
+							></path>
+						</g>
+						<rect
+							x="0.75"
+							y="0.75"
+							width="30.5"
+							height="30.5"
+							rx="8.25"
+							fill="none"
+							stroke="color-mix(in srgb, var(--text) 22%, transparent)"
+							stroke-width="1.5"
+						></rect>
+					</svg>
+					Tideway
+				</a>
+				<ul class="site-nav__links">
+					<li><a class="site-nav__link" href="#skills">Skills</a></li>
+					<li><a class="site-nav__link" href="#tokens">Tokens</a></li>
+					<li><a class="site-nav__link" href="#theming">Theming</a></li>
+					<li><a class="site-nav__link" href="/docs">Docs</a></li>
+				</ul>
+				<div class="site-nav__actions">
+					<button class="theme-toggle" type="button" data-theme-toggle aria-label="Toggle color theme">
+						<svg class="theme-toggle__icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+							<circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"></circle>
+							<path d="M12 3a9 9 0 0 0 0 18z" fill="currentColor"></path>
+						</svg>
+					</button>
+					<button class="button" type="button" data-copy-prompt>
+						<svg class="copy-prompt__icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+							<rect x="9" y="9" width="11" height="11" rx="2" stroke="currentColor" stroke-width="2"></rect>
+							<path d="M5 15V5a2 2 0 0 1 2-2h10" stroke="currentColor" stroke-width="2"></path>
+						</svg>
+						<span data-copy-label>Copy prompt</span>
+					</button>
+				</div>
+			</nav>
+		</header>
+
+		<main>
+			<section class="hero">
+				<div class="hero__inner container">
+					<div class="hero__copy">
+						<span class="hero__eyebrow">An agent skill, not a library</span>
+						<h1 class="hero__title">
+							Own your <span class="hero__title-accent">styles</span>.
+						</h1>
+						<p class="hero__lede">
+							Tideway is a design system your coding agent drives. Hand it the skill
+							and it writes consistent, plain CSS — fixed tokens, strict BEM — while
+							you stay in the flow of vibe coding. No utility classes to learn, no
+							framework to ship.
+						</p>
+						<div class="hero__actions">
+							<button class="copy-prompt" type="button" data-copy-prompt>
+								<span class="copy-prompt__chevron">&gt;_</span>
+								<span class="copy-prompt__label">Read tidewaystyle.com/start.md to set up Tideway</span>
+								<span class="copy-prompt__action">
+									<svg class="copy-prompt__icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+										<rect x="9" y="9" width="11" height="11" rx="2" stroke="currentColor" stroke-width="2"></rect>
+										<path d="M5 15V5a2 2 0 0 1 2-2h10" stroke="currentColor" stroke-width="2"></path>
+									</svg>
+									<span data-copy-label>Copy</span>
+								</span>
+							</button>
+							<a class="button button--ghost button--large" href="#skills">See how it works</a>
+						</div>
+						<p class="hero__note">Paste it into Claude Code. Your agent takes it from there.</p>
+					</div>
+
+					<div class="chat">
+						<div class="chat__bar">
+							<span class="chat__dot chat__dot--close">
+								<svg class="chat__dot-icon" viewBox="0 0 10 10" fill="none" aria-hidden="true">
+									<path d="M3 3l4 4M7 3l-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path>
+								</svg>
+							</span>
+							<span class="chat__dot chat__dot--minimize">
+								<svg class="chat__dot-icon" viewBox="0 0 10 10" fill="none" aria-hidden="true">
+									<path d="M3 5h4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path>
+								</svg>
+							</span>
+							<span class="chat__dot chat__dot--zoom">
+								<svg class="chat__dot-icon" viewBox="0 0 10 10" fill="none" aria-hidden="true">
+									<path d="M5 3v4M3 5h4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path>
+								</svg>
+							</span>
+							<span class="chat__app">claude code</span>
+						</div>
+						<div class="chat__stream">
+							<p class="chat__prompt">
+								<span class="chat__caret">&gt;</span>
+								<span>Style my card component with a subtle shadow.</span>
+							</p>
+							<p class="chat__action">
+								<span class="chat__action-dot"></span>
+								<span>Read <span class="chat__ref">tokens.css</span></span>
+							</p>
+							<p class="chat__reply">Checking the spacing, radius, and shadow scales.</p>
+							<p class="chat__action">
+								<span class="chat__action-dot"></span>
+								<span>Write <span class="chat__ref">card.css</span></span>
+							</p>
+							<p class="chat__reply">
+								Added a <span class="chat__ref">.card</span> block —
+								<span class="chat__ref">var(--space-6)</span> padding,
+								<span class="chat__ref">var(--radius-lg)</span> corners, and a
+								<span class="chat__ref">var(--shadow-sm)</span>. Strict BEM, every
+								value straight from a token.
+							</p>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section class="features" id="features">
+				<div class="container">
+					<div class="features__head">
+						<h2 class="features__title">You describe it. Your agent styles it.</h2>
+						<p class="features__lede">
+							Tideway is the rulebook your coding agent follows. You keep working in
+							natural language — it keeps the CSS consistent, on-scale, and yours.
+						</p>
+					</div>
+					<div class="features__grid">
+						<article class="feature">
+							<span class="feature__icon">
+								<svg viewBox="0 0 24 24" width="24" height="24" fill="none" aria-hidden="true">
+									<rect x="3" y="3" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="2"></rect>
+									<rect x="14" y="3" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="2"></rect>
+									<rect x="3" y="14" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="2"></rect>
+									<rect x="14" y="14" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="2"></rect>
+								</svg>
+							</span>
+							<h3 class="feature__title">Fixed design tokens</h3>
+							<p class="feature__body">
+								A set palette of colors, spacing, type sizes, and breakpoints. Your
+								agent picks from the scale, so there are no magic numbers and every
+								screen looks like one system.
+							</p>
+						</article>
+						<article class="feature">
+							<span class="feature__icon">
+								<svg viewBox="0 0 24 24" width="24" height="24" fill="none" aria-hidden="true">
+									<path d="M4 7h16M4 12h16M4 17h10" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
+								</svg>
+							</span>
+							<h3 class="feature__title">Strict BEM, enforced</h3>
+							<p class="feature__body">
+								Every class the agent writes is <code>block__element--modifier</code>.
+								Styles never clash, specificity stays flat, and
+								<code>!important</code> never shows up.
+							</p>
+						</article>
+						<article class="feature">
+							<span class="feature__icon">
+								<svg viewBox="0 0 24 24" width="24" height="24" fill="none" aria-hidden="true">
+									<path d="M8 5l-5 7 5 7M16 5l5 7-5 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+								</svg>
+							</span>
+							<h3 class="feature__title">Plain CSS you own</h3>
+							<p class="feature__body">
+								What ships is a stylesheet — hand-legible, diff-able, dependency-free.
+								Drop the skill whenever you like and your styles keep working.
+							</p>
+						</article>
+					</div>
+				</div>
+			</section>
+
+			<section class="skills" id="skills">
+				<div class="container">
+					<div class="section-head">
+						<p class="section-head__eyebrow">The toolkit</p>
+						<h2 class="section-head__title">Four skills, one workflow</h2>
+						<p class="section-head__lede">
+							Tideway is a set of skills your agent reaches for at each stage — writing
+							styles, checking them, clearing dead rules, and bringing existing code
+							across.
+						</p>
+					</div>
+					<div class="skills__grid">
+						{skills.map((skill) => (
+							<a class="skill" href={skill.href}>
+								<p class="skill__slug">{skill.slug}</p>
+								<p class="skill__body">{skill.body}</p>
+								<p class="skill__more">Read the docs &rarr;</p>
+							</a>
+						))}
+					</div>
+				</div>
+			</section>
+
+			<section class="tokens-demo" id="tokens">
+				<div class="container">
+					<div class="section-head">
+						<p class="section-head__eyebrow">Design tokens</p>
+						<h2 class="section-head__title">Every value comes from a scale</h2>
+						<p class="section-head__lede">
+							Colors, spacing, type, radii, shadows, breakpoints — a fixed vocabulary
+							your agent picks from. No magic numbers, so independently-built screens
+							still line up.
+						</p>
+					</div>
+					<div class="tokens-demo__grid">
+						<div class="tokens-demo__panel tokens-demo__panel--wide">
+							<p class="tokens-demo__label">Color</p>
+							<div class="palette">
+								{palette.map((row) => (
+									<div class="palette__row">
+										<p class="palette__name">{row.name}</p>
+										<div class="palette__chips">
+											{shades.map((shade) => (
+												<div class="swatch">
+													<div
+														class="swatch__chip"
+														style={`background-color: var(--color-${row.token}-${shade})`}
+													></div>
+													<span class="swatch__shade">{shade}</span>
+												</div>
+											))}
+										</div>
+									</div>
+								))}
+							</div>
+						</div>
+						<div class="tokens-demo__panel">
+							<p class="tokens-demo__label">Spacing</p>
+							<div class="scale">
+								{spacing.map((step) => (
+									<div class="scale__row">
+										<span class="scale__token">{step.token}</span>
+										<span class="scale__value">{step.value}</span>
+										<span class="scale__bar" style={`width: var(${step.token})`}></span>
+									</div>
+								))}
+							</div>
+						</div>
+						<div class="tokens-demo__panel">
+							<p class="tokens-demo__label">Type</p>
+							<div class="type-scale">
+								{type.map((size) => (
+									<div class="type-scale__row">
+										<span class="type-scale__token">{size.token}</span>
+										<span class={`type-scale__sample type-scale__sample--${size.mod}`}>Own your styles</span>
+									</div>
+								))}
+							</div>
+						</div>
+					</div>
+					<p class="tokens-demo__foot">
+						That's a slice of the vocabulary. Browse every scale in the
+						<a class="tokens-demo__link" href="/docs/colors">token docs</a>.
+					</p>
+				</div>
+			</section>
+
+			<section class="bem">
+				<div class="container">
+					<div class="section-head">
+						<p class="section-head__eyebrow">Strict BEM</p>
+						<h2 class="section-head__title">Flat classes that never fight</h2>
+						<p class="section-head__lede">
+							Every class is <code>block__element--modifier</code>. One class per
+							selector, specificity always (0,1,0) — no cascade surprises, no
+							<code>!important</code>, no nesting yourself into a corner.
+						</p>
+					</div>
+					<div class="compare">
+						<div class="compare__panel">
+							<p class="compare__label">Without a convention — specificity you'll fight later</p>
+							<pre class="compare__code"><code><span class="compare__bad">#sidebar</span> .card .title &#123;
+  color: <span class="compare__bad">#1e293b !important</span>;
+&#125;
+
+.card<span class="compare__bad">.card-featured</span> .title &#123;
+  font-size: <span class="compare__bad">1.125rem</span>;
+&#125;
+
+.card <span class="compare__bad">&gt;</span> .meta a:hover &#123;
+  color: <span class="compare__bad">#2563eb</span>;
+&#125;</code></pre>
+						</div>
+						<div class="compare__panel compare__panel--after">
+							<p class="compare__label compare__label--after">The Tideway way — flat, (0,1,0) every time</p>
+							<pre class="compare__code"><code>.card__title &#123;
+  font-size: <span class="compare__token">var(--text-lg)</span>;
+  color: <span class="compare__token">var(--text)</span>;
+&#125;
+
+.card__meta-link &#123;
+  color: <span class="compare__token">var(--accent)</span>;
+&#125;
+
+.card--featured &#123;
+  box-shadow: <span class="compare__token">var(--shadow-lg)</span>;
+&#125;</code></pre>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section class="theming" id="theming">
+				<div class="container">
+					<div class="section-head">
+						<p class="section-head__eyebrow">Theming</p>
+						<h2 class="section-head__title">Re-theme from one file</h2>
+						<p class="section-head__lede">
+							Components read color from semantic roles — <code>--surface</code>,
+							<code>--text</code>, <code>--accent</code> — never the palette directly.
+							Redefine the role layer and the whole app changes.
+						</p>
+					</div>
+					<div class="theming__inner">
+						<div class="theming__copy">
+							<div class="theming__points">
+								<p class="theming__point">
+									<svg class="theming__check" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+										<path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+									</svg>
+									<span>Components reference roles, so dark mode or a full rebrand lands everywhere at once — without touching a component.</span>
+								</p>
+								<p class="theming__point">
+									<svg class="theming__check" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+										<path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+									</svg>
+									<span><code>light-dark()</code> holds both themes in one declaration, and native controls theme themselves.</span>
+								</p>
+								<p class="theming__point">
+									<svg class="theming__check" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+										<path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+									</svg>
+									<span>Auto mode follows the operating system with zero JavaScript. A remembered toggle needs only a few lines.</span>
+								</p>
+							</div>
+							<p class="theming__note">Try the toggle in the header — it flips this whole page.</p>
+						</div>
+
+						<div class="code-card">
+							<div class="code-card__bar">
+								<span class="code-card__dot code-card__dot--close">
+									<svg class="code-card__dot-icon" viewBox="0 0 10 10" fill="none" aria-hidden="true">
+										<path d="M3 3l4 4M7 3l-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path>
+									</svg>
+								</span>
+								<span class="code-card__dot code-card__dot--minimize">
+									<svg class="code-card__dot-icon" viewBox="0 0 10 10" fill="none" aria-hidden="true">
+										<path d="M3 5h4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path>
+									</svg>
+								</span>
+								<span class="code-card__dot code-card__dot--zoom">
+									<svg class="code-card__dot-icon" viewBox="0 0 10 10" fill="none" aria-hidden="true">
+										<path d="M5 3v4M3 5h4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path>
+									</svg>
+								</span>
+								<span class="code-card__file">semantic.css</span>
+							</div>
+							<pre class="code-card__body"><code>:root &#123;
+  <span class="code-card__prop">--surface</span>: <span class="code-card__token">light-dark(#fff, #020617)</span>;
+  <span class="code-card__prop">--text</span>: <span class="code-card__token">light-dark(#0f172a, #f8fafc)</span>;
+  <span class="code-card__prop">--accent</span>: <span class="code-card__token">light-dark(#2563eb, #60a5fa)</span>;
+&#125;
+
+.card &#123;
+  <span class="code-card__prop">background</span>: <span class="code-card__token">var(--surface)</span>;
+  <span class="code-card__prop">color</span>: <span class="code-card__token">var(--text)</span>;
+&#125;</code></pre>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section class="showcase">
+				<div class="showcase__inner container">
+					<div class="showcase__copy">
+						<p class="showcase__eyebrow">What you're left with</p>
+						<h2 class="showcase__title">Plain CSS, yours to keep</h2>
+						<p class="showcase__lede">
+							Tideway generates nothing at build time. What lands in your repo is a
+							stylesheet you can read, diff, and hand-edit — the same CSS your agent
+							wrote, following the tokens and BEM.
+						</p>
+						<div class="showcase__points">
+							<p class="showcase__point">Every value is a token reference, so the whole app re-themes from one file.</p>
+							<p class="showcase__point">Flat, single-class selectors — no specificity wars, no <code>!important</code>.</p>
+							<p class="showcase__point">Drop the skill any time and the stylesheet keeps working on its own.</p>
+						</div>
+					</div>
+
+					<div class="code-card">
+						<div class="code-card__bar">
+							<span class="code-card__dot code-card__dot--close">
+								<svg class="code-card__dot-icon" viewBox="0 0 10 10" fill="none" aria-hidden="true">
+									<path d="M3 3l4 4M7 3l-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path>
+								</svg>
+							</span>
+							<span class="code-card__dot code-card__dot--minimize">
+								<svg class="code-card__dot-icon" viewBox="0 0 10 10" fill="none" aria-hidden="true">
+									<path d="M3 5h4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path>
+								</svg>
+							</span>
+							<span class="code-card__dot code-card__dot--zoom">
+								<svg class="code-card__dot-icon" viewBox="0 0 10 10" fill="none" aria-hidden="true">
+									<path d="M5 3v4M3 5h4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path>
+								</svg>
+							</span>
+							<span class="code-card__file">card.css</span>
+						</div>
+						<pre class="code-card__body"><code>.card &#123;
+  <span class="code-card__prop">padding</span>: <span class="code-card__token">var(--space-6)</span>;
+  <span class="code-card__prop">border-radius</span>: <span class="code-card__token">var(--radius-lg)</span>;
+  <span class="code-card__prop">box-shadow</span>: <span class="code-card__token">var(--shadow-sm)</span>;
+&#125;
+
+.card__title &#123;
+  <span class="code-card__prop">font-size</span>: <span class="code-card__token">var(--text-lg)</span>;
+  <span class="code-card__prop">font-weight</span>: <span class="code-card__token">var(--font-semibold)</span>;
+&#125;
+
+.card--featured &#123;
+  <span class="code-card__prop">box-shadow</span>: <span class="code-card__token">var(--shadow-lg)</span>;
+&#125;</code></pre>
+					</div>
+				</div>
+			</section>
+
+			<section class="migrate" id="migrate">
+				<div class="container">
+					<div class="section-head">
+						<p class="section-head__eyebrow">Migrate</p>
+						<h2 class="section-head__title">From utility soup to CSS you can read</h2>
+						<p class="section-head__lede">
+							Point <code>/migrate</code> at an existing project and it lifts the
+							styling onto Tideway — the same pixels, legible output. The classes leave
+							your markup and become a stylesheet.
+						</p>
+					</div>
+					<div class="compare">
+						<div class="compare__panel">
+							<p class="compare__label">Before — styling tangled into the markup</p>
+							<pre class="compare__code"><code>&lt;article class=<span class="compare__muted">"max-w-sm p-6 rounded-lg
+  border border-slate-200 shadow-sm
+  bg-white hover:shadow-md"</span>&gt;
+  &lt;h2 class=<span class="compare__muted">"text-lg font-semibold
+    text-slate-900"</span>&gt;Tideway&lt;/h2&gt;
+  &lt;p class=<span class="compare__muted">"mt-2 text-sm
+    text-slate-600"</span>&gt;Own your styles.&lt;/p&gt;
+&lt;/article&gt;</code></pre>
+						</div>
+						<div class="compare__panel compare__panel--after">
+							<p class="compare__label compare__label--after">After — semantic markup, styles in card.css</p>
+							<pre class="compare__code"><code>&lt;article class="<span class="compare__token">card</span>"&gt;
+  &lt;h2 class="<span class="compare__token">card__title</span>"&gt;Tideway&lt;/h2&gt;
+  &lt;p class="<span class="compare__token">card__body</span>"&gt;
+    Own your styles.
+  &lt;/p&gt;
+&lt;/article&gt;</code></pre>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section class="no-lock">
+				<div class="container">
+					<div class="section-head section-head--center">
+						<p class="section-head__eyebrow">No lock-in</p>
+						<h2 class="section-head__title">Nothing to be trapped by</h2>
+						<p class="section-head__lede">
+							Tideway is a convention your agent follows, not a package your app
+							depends on. There's nothing in your bundle and nothing to rip out later.
+						</p>
+					</div>
+					<div class="no-lock__grid">
+						{noLock.map((item) => (
+							<div class="no-lock__item">
+								<svg class="no-lock__check" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+									<path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+								</svg>
+								<div class="no-lock__body">
+									<p class="no-lock__lead">{item.lead}</p>
+									<p class="no-lock__text">{item.text}</p>
+								</div>
+							</div>
+						))}
+					</div>
+				</div>
+			</section>
+
+			<section class="cta-band" id="start">
+				<div class="container">
+					<div class="cta-band__panel">
+						<h2 class="cta-band__title">Point your agent at Tideway</h2>
+						<p class="cta-band__lede">
+							Copy the prompt, paste it into your coding agent, and start shipping
+							CSS that stays consistent — and stays yours.
+						</p>
+						<div class="cta-band__actions">
+							<button class="button button--light button--large" type="button" data-copy-prompt>
+								<svg class="copy-prompt__icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+									<rect x="9" y="9" width="11" height="11" rx="2" stroke="currentColor" stroke-width="2"></rect>
+									<path d="M5 15V5a2 2 0 0 1 2-2h10" stroke="currentColor" stroke-width="2"></path>
+								</svg>
+								<span data-copy-label>Copy prompt</span>
+							</button>
+							<a class="button button--ghost-light button--large" href="/docs">Read the docs</a>
+						</div>
+					</div>
+				</div>
+			</section>
+		</main>
+
+		<footer class="site-footer">
+			<div class="site-footer__inner container">
+				<span class="site-footer__brand">Tideway</span>
+				<p class="site-footer__note">A design system you own, end to end.</p>
+				<ul class="site-footer__links">
+					<li><a class="site-footer__link" href="#skills">Skills</a></li>
+					<li><a class="site-footer__link" href="#tokens">Tokens</a></li>
+					<li><a class="site-footer__link" href="#theming">Theming</a></li>
+					<li><a class="site-footer__link" href="/docs">Docs</a></li>
+					<li><a class="site-footer__link" href="https://github.com/matthewp/tideway">GitHub</a></li>
+				</ul>
+			</div>
+		</footer>
+
+		<script>
+			const themeRoot = document.documentElement;
+			for (const toggle of document.querySelectorAll("[data-theme-toggle]")) {
+				toggle.addEventListener("click", () => {
+					const current =
+						themeRoot.dataset.theme ||
+						(window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+					const next = current === "dark" ? "light" : "dark";
+					themeRoot.dataset.theme = next;
+					localStorage.setItem("theme", next);
+				});
+			}
+
+			const PROMPT =
+				"Read https://tidewaystyle.com/start.md, then set up Tideway in this project and use it to style everything.";
+
+			for (const trigger of document.querySelectorAll<HTMLElement>("[data-copy-prompt]")) {
+				trigger.addEventListener("click", async () => {
+					try {
+						await navigator.clipboard.writeText(PROMPT);
+					} catch {
+						return;
+					}
+					const label = trigger.querySelector<HTMLElement>("[data-copy-label]");
+					if (!label) return;
+					const original = label.textContent;
+					label.textContent = "Copied!";
+					window.setTimeout(() => {
+						label.textContent = original;
+					}, 2000);
+				});
+			}
+		</script>
+	</body>
+</html>

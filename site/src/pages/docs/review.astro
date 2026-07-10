@@ -1,0 +1,62 @@
+---
+import DocsLayout from "../../layouts/DocsLayout.astro";
+---
+
+<DocsLayout
+	title="review skill"
+	description="The review skill checks CSS against Tideway's tokens, semantic roles, and BEM conventions, reporting where it drifts."
+	active="review"
+>
+	<article class="doc">
+		<p class="doc__eyebrow">Skill</p>
+		<h1 class="doc__title">review</h1>
+		<p class="doc__lead">
+			Checks CSS against the Tideway conventions and reports where it drifts — off-scale values,
+			inlined tokens, direct palette use, and BEM or selector violations. It reads and reports;
+			fixes happen only on your go-ahead.
+		</p>
+
+		<section class="doc__section">
+			<h2 class="doc__section-title">What it checks</h2>
+			<div class="doc__list">
+				<p class="doc__item">
+					<strong>Off-scale values</strong> — a color, spacing, size, radius, or shadow that isn't one
+					of the <a class="doc__link" href="/docs/colors">token scales</a>.
+				</p>
+				<p class="doc__item">
+					<strong>Inlined token values</strong> — a raw value that equals a token
+					(<code class="doc__code">padding: 1rem</code>) instead of
+					<code class="doc__code">var(--space-4)</code>.
+				</p>
+				<p class="doc__item">
+					<strong>Direct palette use</strong> — a component reading a
+					<code class="doc__code">--color-*</code> primitive for color instead of a
+					<a class="doc__link" href="/docs/theming">semantic role</a>.
+				</p>
+				<p class="doc__item">
+					<strong>BEM &amp; selector violations</strong> — names that aren't
+					<code class="doc__code">block__element--modifier</code>, nested elements, multiple classes
+					per selector, IDs, descendant combinators, or <code class="doc__code">!important</code>.
+				</p>
+			</div>
+		</section>
+
+		<section class="doc__section">
+			<h2 class="doc__section-title">Scope</h2>
+			<div class="doc__list">
+				<p class="doc__item">
+					By default it reviews <strong>only what changed</strong> — the staged and unstaged edits
+					(<code class="doc__code">git diff HEAD</code>), not the whole codebase.
+				</p>
+				<p class="doc__item">
+					It widens to a full audit only when you ask, or when there are no pending changes — and in
+					that case it asks first, since a whole-codebase review is a larger task.
+				</p>
+				<p class="doc__item">
+					Findings are grouped by file and rule, with the fix named. Nothing is rewritten until you say
+					so.
+				</p>
+			</div>
+		</section>
+	</article>
+</DocsLayout>

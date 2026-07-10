@@ -1,0 +1,23 @@
+/* docs — the documentation shell: sidebar + content. */
+.docs {
+  display: grid;
+  gap: var(--space-10);
+  padding-block: var(--space-12);
+}
+
+.docs__main {
+  min-width: 0;
+}
+
+@media (min-width: 1024px) {
+  .docs {
+    grid-template-columns: var(--container-3xs) 1fr;
+    gap: var(--space-16);
+  }
+
+  .docs__sidebar {
+    position: sticky;
+    top: var(--space-16);
+    align-self: start;
+  }
+}

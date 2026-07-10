@@ -1,0 +1,35 @@
+---
+import DocsLayout from "../../layouts/DocsLayout.astro";
+
+const shadows = ["sm", "base", "md", "lg", "xl", "2xl", "inner"];
+---
+
+<DocsLayout
+	title="Shadow tokens"
+	description="Tideway shadow tokens — the elevation scale from subtle to lifted."
+	active="shadows"
+>
+	<article class="doc">
+		<p class="doc__eyebrow">Tokens</p>
+		<h1 class="doc__title">Shadows</h1>
+		<p class="doc__lead">
+			The elevation scale, named <code class="doc__code">--shadow-&#123;size&#125;</code>. Larger tokens read
+			as more lifted off the page; <code class="doc__code">--shadow-inner</code> insets instead.
+		</p>
+
+		<section class="doc__section">
+			<div class="token-table">
+				{shadows.map((name) => (
+					<div class="token-table__row">
+						<div class="token-table__meta">
+							<span class="token-table__name">--shadow-{name}</span>
+						</div>
+						<div class="token-table__preview">
+							<div class="token-table__box token-table__box--surface" style={`box-shadow: var(--shadow-${name}); border-radius: var(--radius-lg)`}></div>
+						</div>
+					</div>
+				))}
+			</div>
+		</section>
+	</article>
+</DocsLayout>

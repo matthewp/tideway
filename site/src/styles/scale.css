@@ -1,0 +1,31 @@
+/* scale — a token scale visualized as labelled bars (spacing, sizing). */
+.scale {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.scale__row {
+  display: grid;
+  grid-template-columns: var(--space-20) var(--space-16) 1fr;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.scale__token {
+  font-family: ui-monospace, "SF Mono", "Cascadia Code", Menlo, monospace;
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+}
+
+.scale__value {
+  font-size: var(--text-sm);
+  color: var(--text-subtle);
+}
+
+.scale__bar {
+  max-width: 100%;
+  height: var(--space-4);
+  border-radius: var(--radius-base);
+  background-color: var(--accent);
+}

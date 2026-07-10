@@ -1,0 +1,45 @@
+/* site-footer — closing footer with brand and links. */
+.site-footer {
+  padding-block: var(--space-12);
+  border-top: var(--border-1) solid var(--border);
+}
+
+.site-footer__inner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  align-items: center;
+  justify-content: space-between;
+}
+
+.site-footer__brand {
+  font-size: var(--text-base);
+  font-weight: var(--font-semibold);
+  color: var(--text-muted);
+}
+
+.site-footer__note {
+  font-size: var(--text-sm);
+  color: var(--text-subtle);
+}
+
+.site-footer__links {
+  display: flex;
+  gap: var(--space-6);
+}
+
+.site-footer__link {
+  font-size: var(--text-sm);
+  color: var(--text-subtle);
+  transition: color var(--duration-150) var(--ease-in-out);
+}
+
+.site-footer__link:hover {
+  color: var(--text);
+}
+
+@media (min-width: 768px) {
+  .site-footer__inner {
+    flex-direction: row;
+  }
+}

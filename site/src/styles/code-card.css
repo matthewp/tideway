@@ -1,0 +1,81 @@
+/* code-card — a framed code sample with a faux window title bar. */
+.code-card {
+  /* Window-control state, re-declared on hover so each dot selector stays flat. */
+  --dot-close: var(--color-slate-600);
+  --dot-minimize: var(--color-slate-600);
+  --dot-zoom: var(--color-slate-600);
+  --dot-icon: transparent;
+
+  border: var(--border-1) solid var(--border);
+  border-radius: var(--radius-2xl);
+  background-color: var(--color-slate-950);
+  box-shadow: var(--shadow-xl);
+  overflow: hidden;
+}
+
+.code-card:hover {
+  --dot-close: var(--color-red-500);
+  --dot-minimize: var(--color-amber-400);
+  --dot-zoom: var(--color-green-500);
+  --dot-icon: color-mix(in srgb, var(--color-slate-950) 55%, transparent);
+}
+
+.code-card__bar {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-4);
+  border-bottom: var(--border-1) solid var(--color-slate-800);
+}
+
+.code-card__dot {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--space-3);
+  height: var(--space-3);
+  border-radius: var(--radius-full);
+  color: var(--dot-icon);
+  transition: background-color var(--duration-150) var(--ease-in-out), color var(--duration-150) var(--ease-in-out);
+}
+
+.code-card__dot--close {
+  background-color: var(--dot-close);
+}
+
+.code-card__dot--minimize {
+  background-color: var(--dot-minimize);
+}
+
+.code-card__dot--zoom {
+  background-color: var(--dot-zoom);
+}
+
+.code-card__dot-icon {
+  width: var(--space-2);
+  height: var(--space-2);
+}
+
+.code-card__file {
+  margin-left: var(--space-2);
+  font-size: var(--text-sm);
+  color: var(--color-slate-400);
+}
+
+.code-card__body {
+  margin: 0;
+  padding: var(--space-6);
+  overflow-x: auto;
+  font-family: ui-monospace, "SF Mono", "Cascadia Code", Menlo, monospace;
+  font-size: var(--text-sm);
+  line-height: var(--leading-relaxed);
+  color: var(--color-slate-300);
+}
+
+.code-card__prop {
+  color: var(--color-cyan-400);
+}
+
+.code-card__token {
+  color: var(--color-blue-400);
+}

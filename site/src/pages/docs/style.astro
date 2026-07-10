@@ -1,0 +1,51 @@
+---
+import DocsLayout from "../../layouts/DocsLayout.astro";
+---
+
+<DocsLayout
+	title="style skill"
+	description="The style skill writes CSS following Tideway's tokens and strict BEM conventions."
+	active="style"
+>
+	<article class="doc">
+		<p class="doc__eyebrow">Skill</p>
+		<h1 class="doc__title">style</h1>
+		<p class="doc__lead">
+			Writes CSS the Tideway way: every value from a token, every class in strict BEM, as plain CSS
+			with no build step. Use it whenever you're styling a component or page in a Tideway project.
+		</p>
+
+		<section class="doc__section">
+			<h2 class="doc__section-title">The rules it follows</h2>
+			<div class="doc__list">
+				<p class="doc__item">
+					<strong>Every value comes from a token.</strong> Colors, spacing, type, radii, shadows, and
+					breakpoints all come from the <a class="doc__link" href="/docs/colors">token scales</a> —
+					never an off-scale value.
+				</p>
+				<p class="doc__item">
+					<strong>Reference tokens as custom properties.</strong> Write
+					<code class="doc__code">padding: var(--space-4)</code>, not the raw value, so the link to the
+					token survives.
+				</p>
+				<p class="doc__item">
+					<strong>Every class is strict BEM</strong> — <code class="doc__code">block__element--modifier</code>,
+					one block per component, elements flat even when the DOM nests.
+				</p>
+				<p class="doc__item">
+					<strong>Selectors stay flat.</strong> One class per selector, no IDs, no bare element
+					selectors outside the reset, and no <code class="doc__code">!important</code>.
+				</p>
+			</div>
+		</section>
+
+		<section class="doc__section">
+			<h2 class="doc__section-title">Workflow</h2>
+			<div class="doc__list">
+				<p class="doc__item">Create a <code class="doc__code">tokens.css</code> declaring the custom properties the project uses, imported first.</p>
+				<p class="doc__item">Style one block per component, keeping all of a block's CSS together.</p>
+				<p class="doc__item">Media queries use the breakpoint tokens, mobile-first (<code class="doc__code">min-width</code>).</p>
+			</div>
+		</section>
+	</article>
+</DocsLayout>

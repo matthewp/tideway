@@ -1,0 +1,53 @@
+---
+import DocsLayout from "../../layouts/DocsLayout.astro";
+---
+
+<DocsLayout
+	title="prune skill"
+	description="The prune skill finds CSS classes defined in a Tideway project but never used, so stylesheets don't accumulate dead rules."
+	active="prune"
+>
+	<article class="doc">
+		<p class="doc__eyebrow">Skill</p>
+		<h1 class="doc__title">prune</h1>
+		<p class="doc__lead">
+			Finds CSS classes a project defines but no longer uses, so hand-written stylesheets don't
+			accumulate dead rules. Strict BEM makes it reliable: every selector is a single flat class, so
+			each rule maps to exactly one distinctive, searchable name.
+		</p>
+
+		<section class="doc__section">
+			<h2 class="doc__section-title">How it works</h2>
+			<div class="doc__list">
+				<p class="doc__item">
+					A bundled detector scans every <code class="doc__code">.css</code> file for defined classes,
+					then searches the project's markup and scripts for each one.
+				</p>
+				<p class="doc__item">
+					It reports two groups: <strong>Unused</strong> (no reference anywhere) and
+					<strong>Possibly dynamic</strong> (see below).
+				</p>
+				<p class="doc__item">
+					Findings are reported first; classes are removed only on your go-ahead, and it's safe to do
+					under version control.
+				</p>
+			</div>
+		</section>
+
+		<section class="doc__section">
+			<h2 class="doc__section-title">The one caveat: dynamic class names</h2>
+			<p class="doc__text">
+				A class can be live without its full name ever appearing in the source — when markup builds it
+				at runtime: <code class="doc__code">`card--$&#123;variant&#125;`</code>,
+				<code class="doc__code">clsx("card", isOpen &amp;&amp; "card--open")</code>, or other string
+				construction. Such a class looks unused to a text search.
+			</p>
+			<p class="doc__text">
+				The detector flags these as <strong>Possibly dynamic</strong>: the exact name isn't found, but
+				its prefix (<code class="doc__code">card--</code>) does appear. These are never removed on the
+				report alone — the construction site is checked first to confirm the full name can't be
+				produced there.
+			</p>
+		</section>
+	</article>
+</DocsLayout>

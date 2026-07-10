@@ -1,0 +1,39 @@
+---
+import DocsLayout from "../../layouts/DocsLayout.astro";
+
+const breakpoints = [
+	["sm", "640px"], ["md", "768px"], ["lg", "1024px"], ["xl", "1280px"], ["2xl", "1536px"],
+];
+---
+
+<DocsLayout
+	title="Breakpoint tokens"
+	description="Tideway breakpoints — mobile-first min-width steps for responsive layouts."
+	active="breakpoints"
+>
+	<article class="doc">
+		<p class="doc__eyebrow">Tokens</p>
+		<h1 class="doc__title">Breakpoints</h1>
+		<p class="doc__lead">
+			Five mobile-first breakpoints. Write base styles for the smallest screen, then layer changes
+			in <code class="doc__code">min-width</code> media queries. Custom properties can't be used inside
+			media queries, so write the raw pixel value and name the breakpoint in a comment.
+		</p>
+
+		<section class="doc__section">
+			<div class="token-table">
+				{breakpoints.map(([name, value]) => (
+					<div class="token-table__row">
+						<div class="token-table__meta">
+							<span class="token-table__name">{name}</span>
+							<span class="token-table__value">{value}</span>
+						</div>
+						<div class="token-table__preview">
+							<span class="token-table__note">@media (min-width: {value})</span>
+						</div>
+					</div>
+				))}
+			</div>
+		</section>
+	</article>
+</DocsLayout>

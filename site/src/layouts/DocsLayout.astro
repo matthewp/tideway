@@ -1,0 +1,160 @@
+---
+import "../styles/main.css";
+
+const { title, description, active } = Astro.props;
+
+const groups = [
+	{
+		heading: "Getting started",
+		items: [
+				{ label: "Overview", href: "/docs", slug: "overview" },
+				{ label: "Installation", href: "/docs/installation", slug: "installation" },
+			],
+	},
+	{
+		heading: "Skills",
+		items: [
+			{ label: "/style", href: "/docs/style", slug: "style" },
+				{ label: "/review", href: "/docs/review", slug: "review" },
+			{ label: "/prune", href: "/docs/prune", slug: "prune" },
+			{ label: "/migrate", href: "/docs/migrate", slug: "migrate" },
+		],
+	},
+	{
+		heading: "Guides",
+		items: [{ label: "Theming & dark mode", href: "/docs/theming", slug: "theming" }],
+	},
+	{
+		heading: "Tokens",
+		items: [
+			{ label: "Colors", href: "/docs/colors", slug: "colors" },
+			{ label: "Spacing", href: "/docs/spacing", slug: "spacing" },
+			{ label: "Typography", href: "/docs/typography", slug: "typography" },
+			{ label: "Breakpoints", href: "/docs/breakpoints", slug: "breakpoints" },
+			{ label: "Max-width", href: "/docs/max-width", slug: "max-width" },
+			{ label: "Border radius", href: "/docs/radius", slug: "radius" },
+			{ label: "Shadows", href: "/docs/shadows", slug: "shadows" },
+			{ label: "Z-index", href: "/docs/z-index", slug: "z-index" },
+			{ label: "Transitions", href: "/docs/transitions", slug: "transitions" },
+			{ label: "Blur", href: "/docs/blur", slug: "blur" },
+			{ label: "Border width", href: "/docs/border-width", slug: "border-width" },
+		],
+	},
+];
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="color-scheme" content="light dark" />
+		<script is:inline>
+			const t = localStorage.getItem("theme");
+			if (t === "light" || t === "dark") document.documentElement.dataset.theme = t;
+		</script>
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="generator" content={Astro.generator} />
+		<meta name="description" content={description} />
+		<title>{title} — Tideway</title>
+	</head>
+	<body>
+		<header class="site-nav">
+			<nav class="site-nav__inner container">
+				<a class="site-nav__brand" href="/">
+					<svg class="site-nav__mark" viewBox="0 0 32 32" aria-hidden="true">
+						<defs>
+							<linearGradient id="mark-gradient" x1="0" y1="0" x2="1" y2="1">
+								<stop offset="0" style="stop-color: var(--color-blue-600)"></stop>
+								<stop offset="1" style="stop-color: var(--color-cyan-500)"></stop>
+							</linearGradient>
+							<clipPath id="mark-clip">
+								<rect width="32" height="32" rx="9"></rect>
+							</clipPath>
+						</defs>
+						<g clip-path="url(#mark-clip)">
+							<rect width="32" height="32" fill="url(#mark-gradient)"></rect>
+							<path d="M-2 20 Q 6 15 14 20 T 30 20 T 46 20 V 34 H -2 Z" fill="var(--color-white)" opacity="0.9"></path>
+							<path d="M-2 24 Q 6 19 14 24 T 30 24 T 46 24 V 34 H -2 Z" fill="var(--color-white)" opacity="0.55"></path>
+						</g>
+						<rect x="0.75" y="0.75" width="30.5" height="30.5" rx="8.25" fill="none" stroke="color-mix(in srgb, var(--text) 22%, transparent)" stroke-width="1.5"></rect>
+					</svg>
+					Tideway
+				</a>
+				<ul class="site-nav__links">
+					<li><a class="site-nav__link" href="/docs">Docs</a></li>
+					<li><a class="site-nav__link" href="https://github.com/matthewp/tideway">GitHub</a></li>
+				</ul>
+				<div class="site-nav__actions">
+					<button class="theme-toggle" type="button" data-theme-toggle aria-label="Toggle color theme">
+						<svg class="theme-toggle__icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+							<circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"></circle>
+							<path d="M12 3a9 9 0 0 0 0 18z" fill="currentColor"></path>
+						</svg>
+					</button>
+					<a class="button" href="/">Home</a>
+				</div>
+			</nav>
+		</header>
+
+		<div class="container">
+			<div class="docs">
+				<aside class="docs__sidebar">
+					<nav class="doc-nav">
+						{groups.map((group) => (
+							<div class="doc-nav__group">
+								<p class="doc-nav__heading">{group.heading}</p>
+								<ul class="doc-nav__list">
+									{group.items.map((item) => (
+										<li>
+											{item.soon ? (
+												<span class="doc-nav__link doc-nav__link--soon">
+													{item.label}<span class="doc-nav__soon">soon</span>
+												</span>
+											) : (
+												<a
+													class:list={["doc-nav__link", item.slug === active && "doc-nav__link--active"]}
+													href={item.href}
+												>
+													{item.label}
+												</a>
+											)}
+										</li>
+									))}
+								</ul>
+							</div>
+						))}
+					</nav>
+				</aside>
+
+				<main class="docs__main">
+					<slot />
+				</main>
+			</div>
+		</div>
+
+		<footer class="site-footer">
+			<div class="site-footer__inner container">
+				<span class="site-footer__brand">Tideway</span>
+				<p class="site-footer__note">A design system you own, end to end.</p>
+				<ul class="site-footer__links">
+					<li><a class="site-footer__link" href="/docs">Docs</a></li>
+					<li><a class="site-footer__link" href="https://github.com/matthewp/tideway">GitHub</a></li>
+				</ul>
+			</div>
+		</footer>
+
+		<script>
+			const themeRoot = document.documentElement;
+			for (const toggle of document.querySelectorAll("[data-theme-toggle]")) {
+				toggle.addEventListener("click", () => {
+					const current =
+						themeRoot.dataset.theme ||
+						(window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+					const next = current === "dark" ? "light" : "dark";
+					themeRoot.dataset.theme = next;
+					localStorage.setItem("theme", next);
+				});
+			}
+		</script>
+	</body>
+</html>

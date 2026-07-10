@@ -1,0 +1,8 @@
+{
+  "name": "tideway",
+  "description": "A CSS design system delivered as conventions, not a library: design tokens, strict BEM, plain CSS written by your agent.",
+  "version": "0.1.0",
+  "author": {
+    "name": "Matthew Phillips"
+  }
+}

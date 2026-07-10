@@ -1,0 +1,66 @@
+/* compare — a before/after pair of code or markup panels. */
+.compare {
+  display: grid;
+  gap: var(--space-6);
+  margin-top: var(--space-12);
+}
+
+.compare__panel {
+  display: flex;
+  flex-direction: column;
+  border: var(--border-1) solid var(--border);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  background-color: var(--surface-raised);
+}
+
+.compare__panel--after {
+  border-color: var(--accent);
+  box-shadow: var(--shadow-md);
+}
+
+.compare__label {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-5);
+  border-bottom: var(--border-1) solid var(--border);
+  font-size: var(--text-sm);
+  font-weight: var(--font-semibold);
+  color: var(--text-muted);
+}
+
+.compare__label--after {
+  color: var(--accent-text);
+  border-bottom-color: var(--accent);
+  background-color: var(--accent-surface);
+}
+
+.compare__code {
+  margin: 0;
+  padding: var(--space-5);
+  overflow-x: auto;
+  font-family: ui-monospace, "SF Mono", "Cascadia Code", Menlo, monospace;
+  font-size: var(--text-sm);
+  line-height: var(--leading-relaxed);
+  color: var(--text);
+}
+
+.compare__bad {
+  color: var(--danger);
+}
+
+.compare__token {
+  color: var(--accent-text);
+}
+
+.compare__muted {
+  color: var(--text-subtle);
+}
+
+@media (min-width: 1024px) {
+  .compare {
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+  }
+}

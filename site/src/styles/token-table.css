@@ -1,0 +1,70 @@
+/* token-table — a token scale listed as name + value + a live preview. */
+.token-table {
+  display: flex;
+  flex-direction: column;
+}
+
+.token-table__row {
+  display: grid;
+  gap: var(--space-2);
+  padding-block: var(--space-5);
+  border-top: var(--border-1) solid var(--border);
+}
+
+.token-table__meta {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  min-width: 0;
+}
+
+.token-table__name {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+}
+
+.token-table__value {
+  font-size: var(--text-sm);
+  color: var(--text-subtle);
+  overflow-wrap: anywhere;
+}
+
+.token-table__preview {
+  min-width: 0;
+}
+
+.token-table__note {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+}
+
+.token-table__sample {
+  color: var(--text);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.token-table__box {
+  width: var(--space-16);
+  height: var(--space-16);
+  background-color: var(--accent);
+}
+
+.token-table__box--surface {
+  background-color: var(--surface-raised);
+  border: var(--border-1) solid var(--border);
+}
+
+.token-table__box--gradient {
+  background-image: linear-gradient(120deg, var(--accent), var(--color-cyan-400));
+}
+
+@media (min-width: 640px) {
+  .token-table__row {
+    grid-template-columns: var(--container-2xs) 1fr;
+    gap: var(--space-8);
+    align-items: center;
+  }
+}

@@ -1,0 +1,35 @@
+---
+import DocsLayout from "../../layouts/DocsLayout.astro";
+
+const widths = [["1", "1px"], ["2", "2px"], ["4", "4px"], ["8", "8px"]];
+---
+
+<DocsLayout
+	title="Border width tokens"
+	description="Tideway border width tokens — the stroke-weight scale for borders."
+	active="border-width"
+>
+	<article class="doc">
+		<p class="doc__eyebrow">Tokens</p>
+		<h1 class="doc__title">Border width</h1>
+		<p class="doc__lead">
+			Stroke weights for borders, named <code class="doc__code">--border-&#123;n&#125;</code>.
+		</p>
+
+		<section class="doc__section">
+			<div class="token-table">
+				{widths.map(([name, value]) => (
+					<div class="token-table__row">
+						<div class="token-table__meta">
+							<span class="token-table__name">--border-{name}</span>
+							<span class="token-table__value">{value}</span>
+						</div>
+						<div class="token-table__preview">
+							<div class="token-table__box token-table__box--surface" style={`border: var(--border-${name}) solid var(--color-slate-400); border-radius: var(--radius-md)`}></div>
+						</div>
+					</div>
+				))}
+			</div>
+		</section>
+	</article>
+</DocsLayout>

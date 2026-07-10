@@ -1,0 +1,39 @@
+---
+import DocsLayout from "../../layouts/DocsLayout.astro";
+
+const blurs = [
+	["xs", "4px"], ["sm", "8px"], ["md", "12px"], ["lg", "16px"],
+	["xl", "24px"], ["2xl", "40px"], ["3xl", "64px"],
+];
+---
+
+<DocsLayout
+	title="Blur tokens"
+	description="Tideway blur tokens — for filter and backdrop-filter effects."
+	active="blur"
+>
+	<article class="doc">
+		<p class="doc__eyebrow">Tokens</p>
+		<h1 class="doc__title">Blur</h1>
+		<p class="doc__lead">
+			Blur radii for <code class="doc__code">filter</code> and <code class="doc__code">backdrop-filter</code>,
+			named <code class="doc__code">--blur-&#123;size&#125;</code>.
+		</p>
+
+		<section class="doc__section">
+			<div class="token-table">
+				{blurs.map(([name, value]) => (
+					<div class="token-table__row">
+						<div class="token-table__meta">
+							<span class="token-table__name">--blur-{name}</span>
+							<span class="token-table__value">{value}</span>
+						</div>
+						<div class="token-table__preview">
+							<div class="token-table__box token-table__box--gradient" style={`filter: blur(var(--blur-${name})); border-radius: var(--radius-lg)`}></div>
+						</div>
+					</div>
+				))}
+			</div>
+		</section>
+	</article>
+</DocsLayout>

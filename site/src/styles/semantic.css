@@ -1,0 +1,55 @@
+/* Tideway semantic tokens — the themeable role layer. Components reference
+   these roles, never the palette directly. Each role is declared twice: a
+   plain light fallback for pre-2024 browsers, then light-dark() for both. */
+:root {
+  color-scheme: light dark;
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+}
+
+:root {
+  --surface: var(--color-white);
+  --surface: light-dark(var(--color-white), var(--color-slate-950));
+  --surface-subtle: var(--color-slate-50);
+  --surface-subtle: light-dark(var(--color-slate-50), var(--color-slate-900));
+  --surface-raised: var(--color-white);
+  --surface-raised: light-dark(var(--color-white), var(--color-slate-900));
+  --surface-hover: var(--color-slate-100);
+  --surface-hover: light-dark(var(--color-slate-100), var(--color-slate-800));
+
+  --text: var(--color-slate-900);
+  --text: light-dark(var(--color-slate-900), var(--color-slate-50));
+  --text-muted: var(--color-slate-600);
+  --text-muted: light-dark(var(--color-slate-600), var(--color-slate-400));
+  --text-subtle: var(--color-slate-500);
+  --text-subtle: light-dark(var(--color-slate-500), var(--color-slate-500));
+
+  --border: var(--color-slate-200);
+  --border: light-dark(var(--color-slate-200), var(--color-slate-800));
+  --border-strong: var(--color-slate-300);
+  --border-strong: light-dark(var(--color-slate-300), var(--color-slate-700));
+
+  --accent: var(--color-blue-600);
+  --accent: light-dark(var(--color-blue-600), var(--color-blue-400));
+  --accent-strong: var(--color-blue-700);
+  --accent-strong: light-dark(var(--color-blue-700), var(--color-blue-300));
+  --accent-text: var(--color-blue-700);
+  --accent-text: light-dark(var(--color-blue-700), var(--color-blue-300));
+  --accent-surface: var(--color-blue-50);
+  --accent-surface: light-dark(var(--color-blue-50), var(--color-blue-950));
+  --accent-fill: var(--color-blue-600);
+  --accent-fill: light-dark(var(--color-blue-600), var(--color-blue-500));
+  --accent-fill-hover: var(--color-blue-700);
+  --accent-fill-hover: light-dark(var(--color-blue-700), var(--color-blue-600));
+
+  --on-accent: var(--color-white);
+
+  --danger: var(--color-red-600);
+  --danger: light-dark(var(--color-red-600), var(--color-red-400));
+}

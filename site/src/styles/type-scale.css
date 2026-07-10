@@ -1,0 +1,52 @@
+/* type-scale — the type token scale shown as sized sample rows. */
+.type-scale {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.type-scale__row {
+  display: grid;
+  grid-template-columns: var(--space-24) 1fr;
+  align-items: baseline;
+  gap: var(--space-5);
+}
+
+.type-scale__token {
+  font-family: ui-monospace, "SF Mono", "Cascadia Code", Menlo, monospace;
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+}
+
+.type-scale__sample {
+  font-weight: var(--font-semibold);
+  letter-spacing: var(--tracking-tight);
+  color: var(--text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.type-scale__sample--sm {
+  font-size: var(--text-sm);
+}
+
+.type-scale__sample--base {
+  font-size: var(--text-base);
+}
+
+.type-scale__sample--lg {
+  font-size: var(--text-lg);
+}
+
+.type-scale__sample--xl {
+  font-size: var(--text-xl);
+}
+
+.type-scale__sample--2xl {
+  font-size: var(--text-2xl);
+}
+
+.type-scale__sample--4xl {
+  font-size: var(--text-4xl);
+}

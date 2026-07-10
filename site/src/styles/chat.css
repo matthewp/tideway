@@ -1,0 +1,109 @@
+/* chat — a mock coding-agent session shown in the hero. */
+.chat {
+  /* Window-control state, re-declared on hover so each dot selector stays flat. */
+  --dot-close: var(--color-slate-600);
+  --dot-minimize: var(--color-slate-600);
+  --dot-zoom: var(--color-slate-600);
+  --dot-icon: transparent;
+
+  border: var(--border-1) solid var(--border);
+  border-radius: var(--radius-2xl);
+  background-color: var(--color-slate-950);
+  box-shadow: var(--shadow-xl);
+  overflow: hidden;
+}
+
+.chat:hover {
+  --dot-close: var(--color-red-500);
+  --dot-minimize: var(--color-amber-400);
+  --dot-zoom: var(--color-green-500);
+  --dot-icon: color-mix(in srgb, var(--color-slate-950) 55%, transparent);
+}
+
+.chat__bar {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-4);
+  border-bottom: var(--border-1) solid var(--color-slate-800);
+}
+
+.chat__dot {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--space-3);
+  height: var(--space-3);
+  border-radius: var(--radius-full);
+  color: var(--dot-icon);
+  transition: background-color var(--duration-150) var(--ease-in-out), color var(--duration-150) var(--ease-in-out);
+}
+
+.chat__dot--close {
+  background-color: var(--dot-close);
+}
+
+.chat__dot--minimize {
+  background-color: var(--dot-minimize);
+}
+
+.chat__dot--zoom {
+  background-color: var(--dot-zoom);
+}
+
+.chat__dot-icon {
+  width: var(--space-2);
+  height: var(--space-2);
+}
+
+.chat__app {
+  margin-left: var(--space-2);
+  font-size: var(--text-sm);
+  color: var(--color-slate-400);
+}
+
+.chat__stream {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  padding: var(--space-6);
+  font-family: ui-monospace, "SF Mono", "Cascadia Code", Menlo, monospace;
+  font-size: var(--text-sm);
+  line-height: var(--leading-relaxed);
+}
+
+.chat__prompt {
+  display: flex;
+  gap: var(--space-3);
+  color: var(--color-slate-100);
+}
+
+.chat__caret {
+  flex-shrink: 0;
+  color: var(--color-cyan-400);
+  font-weight: var(--font-bold);
+}
+
+.chat__action {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  color: var(--color-slate-200);
+}
+
+.chat__action-dot {
+  flex-shrink: 0;
+  width: var(--space-2);
+  height: var(--space-2);
+  border-radius: var(--radius-full);
+  background-color: var(--color-cyan-400);
+}
+
+.chat__reply {
+  padding-left: var(--space-5);
+  color: var(--color-slate-400);
+}
+
+.chat__ref {
+  color: var(--color-cyan-400);
+}

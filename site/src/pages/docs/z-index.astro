@@ -1,0 +1,43 @@
+---
+import DocsLayout from "../../layouts/DocsLayout.astro";
+
+const layers = [
+	["0", "0", "base"],
+	["10", "10", "raised content"],
+	["20", "20", "sticky headers"],
+	["30", "30", "dropdowns"],
+	["40", "40", "overlays"],
+	["50", "50", "modals, toasts"],
+];
+---
+
+<DocsLayout
+	title="Z-index tokens"
+	description="Tideway z-index tokens — a fixed ladder for predictable stacking."
+	active="z-index"
+>
+	<article class="doc">
+		<p class="doc__eyebrow">Tokens</p>
+		<h1 class="doc__title">Z-index</h1>
+		<p class="doc__lead">
+			A fixed stacking ladder, named <code class="doc__code">--z-&#123;n&#125;</code>. Staying on it keeps
+			layering predictable instead of a scatter of arbitrary numbers.
+		</p>
+
+		<section class="doc__section">
+			<div class="token-table">
+				{layers.map(([name, value, use]) => (
+					<div class="token-table__row">
+						<div class="token-table__meta">
+							<span class="token-table__name">--z-{name}</span>
+							<span class="token-table__value">{value}</span>
+						</div>
+						<div class="token-table__preview">
+							<span class="token-table__note">{use}</span>
+						</div>
+					</div>
+				))}
+			</div>
+		</section>
+	</article>
+</DocsLayout>

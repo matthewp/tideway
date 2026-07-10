@@ -1,0 +1,24 @@
+/* skills — the section presenting the four Tideway skills as a toolkit. */
+.skills {
+  padding-block: var(--space-24);
+  border-block: var(--border-1) solid var(--border);
+  background-color: var(--surface-subtle);
+}
+
+.skills__grid {
+  display: grid;
+  gap: var(--space-6);
+  margin-top: var(--space-16);
+}
+
+@media (min-width: 640px) {
+  .skills__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .skills__grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

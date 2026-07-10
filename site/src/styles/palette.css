@@ -1,0 +1,54 @@
+/* palette — the color-token swatch grid on the colors doc page. */
+.palette {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+
+.palette__row {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.palette__name {
+  font-size: var(--text-sm);
+  font-weight: var(--font-semibold);
+  text-transform: capitalize;
+  color: var(--text);
+}
+
+.palette__chips {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-2);
+}
+
+.swatch {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.swatch__chip {
+  height: var(--space-12);
+  border-radius: var(--radius-md);
+  border: var(--border-1) solid var(--border);
+}
+
+.swatch__shade {
+  font-size: var(--text-xs);
+  font-weight: var(--font-medium);
+  color: var(--text-muted);
+}
+
+@media (min-width: 640px) {
+  .palette__chips {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .palette__chips {
+    grid-template-columns: repeat(11, 1fr);
+  }
+}

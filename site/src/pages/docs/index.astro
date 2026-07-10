@@ -1,0 +1,51 @@
+---
+import DocsLayout from "../../layouts/DocsLayout.astro";
+---
+
+<DocsLayout
+	title="Docs"
+	description="Documentation for Tideway — a CSS design system delivered as agent skills."
+	active="overview"
+>
+	<article class="doc">
+		<p class="doc__eyebrow">Getting started</p>
+		<h1 class="doc__title">Tideway documentation</h1>
+		<p class="doc__lead">
+			Tideway is a CSS design system delivered as conventions, not a library. Your coding agent
+			follows a fixed set of design tokens and a strict BEM convention, and writes plain CSS you own.
+		</p>
+
+		<section class="doc__section">
+			<h2 class="doc__section-title">Install</h2>
+			<p class="doc__text">
+				Tideway ships as agent skills. Install them into any coding agent with the
+				<code class="doc__code">skills</code> CLI, or as a plugin in Claude Code — the
+				<a class="doc__link" href="/docs/installation">Installation</a> page covers both. Prefer to skip
+				the CLI? Point your agent at the setup file and it installs the skills, creates a
+				<code class="doc__code">tokens.css</code>, and gets ready to style.
+			</p>
+		</section>
+
+		<section class="doc__section">
+			<h2 class="doc__section-title">How the docs are organized</h2>
+			<div class="doc__list">
+				<p class="doc__item">
+					<strong>Getting started</strong> — this overview and
+					<a class="doc__link" href="/docs/installation">Installation</a>.
+				</p>
+				<p class="doc__item">
+					<strong>Skills</strong> — what each skill does and the rules it follows:
+					<a class="doc__link" href="/docs/style">style</a> writes CSS,
+					<a class="doc__link" href="/docs/review">review</a> checks it,
+					<a class="doc__link" href="/docs/prune">prune</a> clears dead rules, and
+					<a class="doc__link" href="/docs/migrate">migrate</a> moves an existing project onto Tideway.
+				</p>
+				<p class="doc__item">
+					<strong>Tokens</strong> — the fixed scales every value comes from:
+					<a class="doc__link" href="/docs/colors">colors</a>,
+					<a class="doc__link" href="/docs/spacing">spacing</a>, and more.
+				</p>
+			</div>
+		</section>
+	</article>
+</DocsLayout>

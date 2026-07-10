@@ -1,0 +1,40 @@
+/* skill — a single skill card, a link to its docs page. */
+.skill {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: var(--space-6);
+  border: var(--border-1) solid var(--border);
+  border-radius: var(--radius-xl);
+  background-color: var(--surface-raised);
+  text-decoration: none;
+  transition: border-color var(--duration-150) var(--ease-in-out), box-shadow var(--duration-150) var(--ease-in-out), transform var(--duration-150) var(--ease-in-out);
+}
+
+.skill:hover {
+  border-color: var(--accent);
+  box-shadow: var(--shadow-md);
+  transform: translateY(calc(-1 * var(--space-1)));
+}
+
+.skill__slug {
+  font-family: ui-monospace, "SF Mono", "Cascadia Code", Menlo, monospace;
+  font-size: var(--text-base);
+  font-weight: var(--font-semibold);
+  color: var(--accent-text);
+}
+
+.skill__body {
+  margin-top: var(--space-3);
+  font-size: var(--text-sm);
+  line-height: var(--leading-relaxed);
+  color: var(--text-muted);
+}
+
+.skill__more {
+  margin-top: auto;
+  padding-top: var(--space-5);
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
+  color: var(--text);
+}

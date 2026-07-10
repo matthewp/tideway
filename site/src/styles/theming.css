@@ -1,0 +1,44 @@
+/* theming — the section explaining the semantic role layer and dark mode. */
+.theming {
+  padding-block: var(--space-24);
+}
+
+.theming__inner {
+  display: grid;
+  gap: var(--space-12);
+  align-items: center;
+  margin-top: var(--space-12);
+}
+
+.theming__points {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  margin-top: var(--space-8);
+}
+
+.theming__point {
+  display: flex;
+  gap: var(--space-3);
+  color: var(--text-muted);
+}
+
+.theming__check {
+  flex-shrink: 0;
+  width: var(--space-5);
+  height: var(--space-5);
+  margin-top: 0.15em;
+  color: var(--accent);
+}
+
+.theming__note {
+  margin-top: var(--space-8);
+  font-size: var(--text-sm);
+  color: var(--text-subtle);
+}
+
+@media (min-width: 1024px) {
+  .theming__inner {
+    grid-template-columns: 1fr 1fr;
+  }
+}

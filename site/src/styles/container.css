@@ -1,0 +1,12 @@
+/* container — centers content and caps its width. Mixed onto a section's inner
+   element so each block stays free of layout-width concerns. */
+.container {
+  width: 100%;
+  max-width: var(--container-6xl);
+  margin-inline: auto;
+  padding-inline: var(--space-6);
+}
+
+.container--narrow {
+  max-width: var(--container-3xl);
+}

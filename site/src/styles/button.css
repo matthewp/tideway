@@ -1,0 +1,59 @@
+/* button — reusable action. Base is the solid primary; modifiers vary tone. */
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-6);
+  border: var(--border-1) solid transparent;
+  border-radius: var(--radius-lg);
+  font-size: var(--text-base);
+  font-weight: var(--font-semibold);
+  line-height: var(--leading-none);
+  color: var(--on-accent);
+  background-color: var(--accent-fill);
+  transition: background-color var(--duration-150) var(--ease-in-out), border-color var(--duration-150) var(--ease-in-out), color var(--duration-150) var(--ease-in-out);
+}
+
+.button:hover {
+  background-color: var(--accent-fill-hover);
+}
+
+.button--ghost {
+  color: var(--text);
+  background-color: transparent;
+  border-color: var(--border-strong);
+}
+
+.button--ghost:hover {
+  color: var(--text);
+  background-color: var(--surface-hover);
+  border-color: var(--border-strong);
+}
+
+.button--large {
+  padding: var(--space-4) var(--space-8);
+  font-size: var(--text-lg);
+  border-radius: var(--radius-xl);
+}
+
+/* Variants for dark backgrounds (cta-band). */
+.button--light {
+  color: var(--color-slate-900);
+  background-color: var(--color-white);
+}
+
+.button--light:hover {
+  background-color: var(--color-slate-100);
+}
+
+.button--ghost-light {
+  color: var(--color-white);
+  background-color: transparent;
+  border-color: color-mix(in oklch, var(--color-white) 40%, transparent);
+}
+
+.button--ghost-light:hover {
+  background-color: color-mix(in oklch, var(--color-white) 12%, transparent);
+  border-color: color-mix(in oklch, var(--color-white) 60%, transparent);
+}

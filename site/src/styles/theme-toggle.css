@@ -1,0 +1,23 @@
+/* theme-toggle — button that flips between light and dark. */
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--space-10);
+  height: var(--space-10);
+  border: var(--border-1) solid transparent;
+  border-radius: var(--radius-lg);
+  color: var(--text-muted);
+  background-color: transparent;
+  transition: color var(--duration-150) var(--ease-in-out), background-color var(--duration-150) var(--ease-in-out);
+}
+
+.theme-toggle:hover {
+  color: var(--text);
+  background-color: var(--surface-hover);
+}
+
+.theme-toggle__icon {
+  width: var(--space-5);
+  height: var(--space-5);
+}

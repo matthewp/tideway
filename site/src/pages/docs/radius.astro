@@ -1,0 +1,39 @@
+---
+import DocsLayout from "../../layouts/DocsLayout.astro";
+
+const radii = [
+	["none", "0"], ["sm", "0.125rem"], ["base", "0.25rem"], ["md", "0.375rem"], ["lg", "0.5rem"],
+	["xl", "0.75rem"], ["2xl", "1rem"], ["3xl", "1.5rem"], ["full", "9999px"],
+];
+---
+
+<DocsLayout
+	title="Border radius tokens"
+	description="Tideway border radius tokens — the corner-rounding scale."
+	active="radius"
+>
+	<article class="doc">
+		<p class="doc__eyebrow">Tokens</p>
+		<h1 class="doc__title">Border radius</h1>
+		<p class="doc__lead">
+			The corner-rounding scale, named <code class="doc__code">--radius-&#123;size&#125;</code>.
+			<code class="doc__code">--radius-full</code> pills any element.
+		</p>
+
+		<section class="doc__section">
+			<div class="token-table">
+				{radii.map(([name, value]) => (
+					<div class="token-table__row">
+						<div class="token-table__meta">
+							<span class="token-table__name">--radius-{name}</span>
+							<span class="token-table__value">{value}</span>
+						</div>
+						<div class="token-table__preview">
+							<div class="token-table__box" style={`border-radius: var(--radius-${name})`}></div>
+						</div>
+					</div>
+				))}
+			</div>
+		</section>
+	</article>
+</DocsLayout>

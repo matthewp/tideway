@@ -1,0 +1,33 @@
+/* features — the section wrapping the pillar cards. */
+.features {
+  padding-block: var(--space-24);
+}
+
+.features__head {
+  max-width: 44ch;
+  margin-bottom: var(--space-16);
+}
+
+.features__title {
+  font-size: var(--text-3xl);
+  font-weight: var(--font-bold);
+  letter-spacing: var(--tracking-tight);
+  color: var(--text);
+}
+
+.features__lede {
+  margin-top: var(--space-4);
+  font-size: var(--text-lg);
+  color: var(--text-muted);
+}
+
+.features__grid {
+  display: grid;
+  gap: var(--space-6);
+}
+
+@media (min-width: 768px) {
+  .features__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

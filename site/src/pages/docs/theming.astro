@@ -1,0 +1,60 @@
+---
+import DocsLayout from "../../layouts/DocsLayout.astro";
+---
+
+<DocsLayout
+	title="Theming & dark mode"
+	description="How Tideway themes: a semantic role layer over the palette, and dark mode with color-scheme and light-dark()."
+	active="theming"
+>
+	<article class="doc">
+		<p class="doc__eyebrow">Guide</p>
+		<h1 class="doc__title">Theming &amp; dark mode</h1>
+		<p class="doc__lead">
+			Theming works because color is referenced through a semantic role layer, never the palette
+			directly. Redefining that layer re-themes the whole project — dark mode, a rebrand — without
+			touching a single component, and without the switch ever leaking into a selector.
+		</p>
+
+		<section class="doc__section">
+			<h2 class="doc__section-title">Two tiers of tokens</h2>
+			<div class="doc__list">
+				<p class="doc__item">
+					<strong>Primitives</strong> — the palette (<code class="doc__code">--color-blue-600</code>)
+					and the other scales. A fixed vocabulary, never referenced for color inside a component.
+				</p>
+				<p class="doc__item">
+					<strong>Semantic roles</strong> — named roles (<code class="doc__code">--surface</code>,
+					<code class="doc__code">--text</code>, <code class="doc__code">--border</code>,
+					<code class="doc__code">--accent</code>, …) that map to primitives. Components read color
+					only from these.
+				</p>
+			</div>
+		</section>
+
+		<section class="doc__section">
+			<h2 class="doc__section-title">Dark mode</h2>
+			<p class="doc__text">
+				Use the browser-native pairing: <code class="doc__code">color-scheme</code> plus
+				<code class="doc__code">light-dark()</code>. One declaration per role holds both themes, native
+				controls (form fields, scrollbars) theme automatically, and the switch stays entirely in the
+				token layer.
+			</p>
+			<div class="doc__list">
+				<p class="doc__item">
+					A plain light value precedes each <code class="doc__code">light-dark()</code> line as a
+					fallback, so browsers without support stay on a working light theme.
+				</p>
+				<p class="doc__item">
+					<code class="doc__code">&lt;meta name="color-scheme" content="light dark"&gt;</code> in the
+					head paints the right background immediately and avoids a flash.
+				</p>
+				<p class="doc__item">
+					Auto mode follows the OS with zero JavaScript. A toggle that remembers a manual choice needs
+					only a few lines of JS to set <code class="doc__code">data-theme</code> — try the switch in
+					this site's header.
+				</p>
+			</div>
+		</section>
+	</article>
+</DocsLayout>

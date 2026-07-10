@@ -1,0 +1,49 @@
+---
+import DocsLayout from "../../layouts/DocsLayout.astro";
+---
+
+<DocsLayout
+	title="migrate skill"
+	description="The migrate skill converts an existing project's styling onto Tideway without changing how it looks."
+	active="migrate"
+>
+	<article class="doc">
+		<p class="doc__eyebrow">Skill</p>
+		<h1 class="doc__title">migrate</h1>
+		<p class="doc__lead">
+			Converts an existing project — Tailwind, plain CSS, or a CSS-in-JS setup — onto Tideway's
+			tokens and BEM. The rendered UI is the fixed point: the CSS underneath changes, the result
+			doesn't.
+		</p>
+
+		<section class="doc__section">
+			<h2 class="doc__section-title">How it works</h2>
+			<div class="doc__list">
+				<p class="doc__item">
+					Reads the <a class="doc__link" href="/docs/style">style</a> skill first, so it knows the exact
+					tokens and BEM rules it's migrating onto.
+				</p>
+				<p class="doc__item">
+					Identifies the source system and follows a source-specific mapping. Tailwind is supported
+					today; other sources fall back to a hand-mapping workflow.
+				</p>
+				<p class="doc__item">
+					Works incrementally — one component at a time, verifying the rendered result matches before
+					moving on.
+				</p>
+			</div>
+		</section>
+
+		<section class="doc__section">
+			<h2 class="doc__section-title">Migrating from Tailwind</h2>
+			<p class="doc__text">
+				Tideway's scales are the same scales Tailwind uses, so most utilities map one-to-one to a
+				token — <code class="doc__code">p-6</code> becomes
+				<code class="doc__code">padding: var(--space-6)</code>,
+				<code class="doc__code">bg-blue-500</code> becomes
+				<code class="doc__code">background-color: var(--color-blue-500)</code>. The real work is
+				regrouping utilities into BEM classes, not recomputing values.
+			</p>
+		</section>
+	</article>
+</DocsLayout>

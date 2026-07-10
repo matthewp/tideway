@@ -1,0 +1,136 @@
+---
+import DocsLayout from "../../layouts/DocsLayout.astro";
+
+const families = [
+	["--font-sans", "ui-sans-serif, system-ui, …"],
+	["--font-serif", "ui-serif, Georgia, …"],
+	["--font-mono", "ui-monospace, SFMono-Regular, …"],
+];
+
+const sizes = ["xs", "sm", "base", "lg", "xl", "2xl", "3xl", "4xl", "5xl", "6xl", "7xl"];
+
+const weights = [
+	["thin", "100"], ["extralight", "200"], ["light", "300"], ["normal", "400"],
+	["medium", "500"], ["semibold", "600"], ["bold", "700"], ["extrabold", "800"], ["black", "900"],
+];
+
+const leading = [
+	["none", "1"], ["tight", "1.25"], ["snug", "1.375"],
+	["normal", "1.5"], ["relaxed", "1.625"], ["loose", "2"],
+];
+
+const tracking = [
+	["tighter", "-0.05em"], ["tight", "-0.025em"], ["normal", "0em"],
+	["wide", "0.025em"], ["wider", "0.05em"], ["widest", "0.1em"],
+];
+---
+
+<DocsLayout
+	title="Typography tokens"
+	description="Tideway typography tokens — font families, sizes, weights, line height, and letter spacing."
+	active="typography"
+>
+	<article class="doc">
+		<p class="doc__eyebrow">Tokens</p>
+		<h1 class="doc__title">Typography</h1>
+		<p class="doc__lead">
+			The type system: three font families, a modular size scale, nine weights, and standalone line
+			height and letter spacing for fine control.
+		</p>
+
+		<section class="doc__section">
+			<h2 class="doc__section-title">Font family</h2>
+			<div class="token-table">
+				{families.map(([name, value]) => (
+					<div class="token-table__row">
+						<div class="token-table__meta">
+							<span class="token-table__name">{name}</span>
+							<span class="token-table__value">{value}</span>
+						</div>
+						<div class="token-table__preview">
+							<p class="token-table__sample" style={`font-family: var(${name}); font-size: var(--text-lg)`}>
+								The quick brown fox jumps over the lazy dog
+							</p>
+						</div>
+					</div>
+				))}
+			</div>
+		</section>
+
+		<section class="doc__section">
+			<h2 class="doc__section-title">Font size</h2>
+			<div class="token-table">
+				{sizes.map((size) => (
+					<div class="token-table__row">
+						<div class="token-table__meta">
+							<span class="token-table__name">--text-{size}</span>
+						</div>
+						<div class="token-table__preview">
+							<p class="token-table__sample" style={`font-size: var(--text-${size})`}>
+								The quick brown fox
+							</p>
+						</div>
+					</div>
+				))}
+			</div>
+		</section>
+
+		<section class="doc__section">
+			<h2 class="doc__section-title">Font weight</h2>
+			<div class="token-table">
+				{weights.map(([name, value]) => (
+					<div class="token-table__row">
+						<div class="token-table__meta">
+							<span class="token-table__name">--font-{name}</span>
+							<span class="token-table__value">{value}</span>
+						</div>
+						<div class="token-table__preview">
+							<p class="token-table__sample" style={`font-weight: var(--font-${name}); font-size: var(--text-lg)`}>
+								The quick brown fox
+							</p>
+						</div>
+					</div>
+				))}
+			</div>
+		</section>
+
+		<section class="doc__section">
+			<h2 class="doc__section-title">Line height</h2>
+			<div class="token-table">
+				{leading.map(([name, value]) => (
+					<div class="token-table__row">
+						<div class="token-table__meta">
+							<span class="token-table__name">--leading-{name}</span>
+							<span class="token-table__value">{value}</span>
+						</div>
+						<div class="token-table__preview">
+							<p class="token-table__note" style={`line-height: var(--leading-${name})`}>
+								Tideway keeps independently written pieces of UI looking like one system, because every
+								value traces back to the same fixed scale.
+							</p>
+						</div>
+					</div>
+				))}
+			</div>
+		</section>
+
+		<section class="doc__section">
+			<h2 class="doc__section-title">Letter spacing</h2>
+			<div class="token-table">
+				{tracking.map(([name, value]) => (
+					<div class="token-table__row">
+						<div class="token-table__meta">
+							<span class="token-table__name">--tracking-{name}</span>
+							<span class="token-table__value">{value}</span>
+						</div>
+						<div class="token-table__preview">
+							<p class="token-table__sample" style={`letter-spacing: var(--tracking-${name}); font-size: var(--text-lg)`}>
+								The quick brown fox
+							</p>
+						</div>
+					</div>
+				))}
+			</div>
+		</section>
+	</article>
+</DocsLayout>
