@@ -19,9 +19,10 @@ import DocsLayout from "../../layouts/DocsLayout.astro";
 			<h2 class="doc__section-title">The rules it follows</h2>
 			<div class="doc__list">
 				<p class="doc__item">
-					<strong>Every value comes from a token.</strong> Colors, spacing, type, radii, shadows, and
-					breakpoints all come from the <a class="doc__link" href="/docs/colors">token scales</a> —
-					never an off-scale value.
+					<strong>Values default to the token scale.</strong> Colors, spacing, type, radii, shadows,
+					and breakpoints come from the <a class="doc__link" href="/docs/colors">token scales</a> —
+					a strong convention, not a ban. A genuinely load-bearing off-scale value is fine when it's
+					a deliberate, flagged exception rather than a habit.
 				</p>
 				<p class="doc__item">
 					<strong>Reference tokens as custom properties.</strong> Write
