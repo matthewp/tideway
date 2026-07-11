@@ -1,0 +1,51 @@
+/* doc-nav-toggle — collapses the docs sidebar into an accordion on mobile. */
+.doc-nav-toggle {
+  border: var(--border-1) solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-3) var(--space-4);
+}
+
+.doc-nav-toggle > .doc-nav {
+  margin-top: var(--space-4);
+}
+
+.doc-nav-toggle__summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  font-size: var(--text-sm);
+  font-weight: var(--font-semibold);
+  color: var(--text);
+  list-style: none;
+}
+
+.doc-nav-toggle__summary::-webkit-details-marker {
+  display: none;
+}
+
+.doc-nav-toggle__icon {
+  width: var(--space-4);
+  height: var(--space-4);
+  color: var(--text-muted);
+  transition: transform var(--duration-150) var(--ease-in-out);
+}
+
+.doc-nav-toggle[open] .doc-nav-toggle__icon {
+  transform: rotate(180deg);
+}
+
+@media (min-width: 1024px) {
+  .doc-nav-toggle {
+    border: none;
+    padding: 0;
+  }
+
+  .doc-nav-toggle__summary {
+    display: none;
+  }
+
+  .doc-nav-toggle > .doc-nav {
+    margin-top: 0;
+  }
+}

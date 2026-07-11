@@ -99,31 +99,39 @@ const groups = [
 		<div class="container">
 			<div class="docs">
 				<aside class="docs__sidebar">
-					<nav class="doc-nav">
-						{groups.map((group) => (
-							<div class="doc-nav__group">
-								<p class="doc-nav__heading">{group.heading}</p>
-								<ul class="doc-nav__list">
-									{group.items.map((item) => (
-										<li>
-											{item.soon ? (
-												<span class="doc-nav__link doc-nav__link--soon">
-													{item.label}<span class="doc-nav__soon">soon</span>
-												</span>
-											) : (
-												<a
-													class:list={["doc-nav__link", item.slug === active && "doc-nav__link--active"]}
-													href={item.href}
-												>
-													{item.label}
-												</a>
-											)}
-										</li>
-									))}
-								</ul>
-							</div>
-						))}
-					</nav>
+					<details class="doc-nav-toggle">
+						<summary class="doc-nav-toggle__summary">
+							Menu
+							<svg class="doc-nav-toggle__icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+								<path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+							</svg>
+						</summary>
+						<nav class="doc-nav">
+							{groups.map((group) => (
+								<div class="doc-nav__group">
+									<p class="doc-nav__heading">{group.heading}</p>
+									<ul class="doc-nav__list">
+										{group.items.map((item) => (
+											<li>
+												{item.soon ? (
+													<span class="doc-nav__link doc-nav__link--soon">
+														{item.label}<span class="doc-nav__soon">soon</span>
+													</span>
+												) : (
+													<a
+														class:list={["doc-nav__link", item.slug === active && "doc-nav__link--active"]}
+														href={item.href}
+													>
+														{item.label}
+													</a>
+												)}
+											</li>
+										))}
+									</ul>
+								</div>
+							))}
+						</nav>
+					</details>
 				</aside>
 
 				<main class="docs__main">
@@ -144,6 +152,16 @@ const groups = [
 		</footer>
 
 		<script>
+			const navToggle = document.querySelector<HTMLDetailsElement>(".doc-nav-toggle");
+			if (navToggle) {
+				const desktop = window.matchMedia("(min-width: 1024px)");
+				const syncNavToggle = () => {
+					navToggle.open = desktop.matches;
+				};
+				syncNavToggle();
+				desktop.addEventListener("change", syncNavToggle);
+			}
+
 			const themeRoot = document.documentElement;
 			for (const toggle of document.querySelectorAll("[data-theme-toggle]")) {
 				toggle.addEventListener("click", () => {

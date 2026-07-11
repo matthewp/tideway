@@ -56,4 +56,8 @@
   .site-nav__links {
     display: flex;
   }
+
+  .site-nav__docs {
+    display: none;
+  }
 }

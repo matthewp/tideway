@@ -31,5 +31,6 @@
 
 @import "./docs.css";
 @import "./doc-nav.css";
+@import "./doc-nav-toggle.css";
 @import "./doc.css";
 @import "./token-table.css";
