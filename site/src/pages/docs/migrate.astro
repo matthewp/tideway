@@ -31,6 +31,12 @@ import DocsLayout from "../../layouts/DocsLayout.astro";
 					Works incrementally — one component at a time, verifying the rendered result matches before
 					moving on.
 				</p>
+				<p class="doc__item">
+					Follows the <a class="doc__link" href="/docs/style">style</a> skill's file organization: a
+					source that already scopes styles per component (CSS Modules, styled-components) keeps that
+					same one-file-per-component mapping; a source with no file mapping to inherit (Tailwind
+					classes in markup) gets a split decided fresh from the project's conventions.
+				</p>
 			</div>
 		</section>
 

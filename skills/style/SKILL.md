@@ -29,6 +29,16 @@ When asked to style something:
 4. Write component styles as one block per component.
 5. Media queries use the breakpoint tokens, mobile-first (`min-width`).
 
+## File organization
+
+Tideway doesn't impose a file layout of its own — it follows whatever convention the project already has:
+
+- **One component per file** (`Tabs.jsx`): give it a matching stylesheet (`Tabs.css`). Don't merge unrelated blocks into one file just because they're small.
+- **Grouped components** (a project that already bundles related components into one file): it's fine to bundle their styles the same way, in one matching stylesheet.
+- **Plain CSS, no component files to mirror**: organize by purpose (`theme.css` for tokens/roles, `layout.css`, `forms.css`) or, if the project has multiple pages, by page. Pick whichever the project already does; default to purpose-based for a new project.
+
+Whatever the split, a block's rules stay together in one place — never spread one component's CSS across multiple files.
+
 ## Example
 
 ```css

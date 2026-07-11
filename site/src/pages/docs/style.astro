@@ -47,5 +47,27 @@ import DocsLayout from "../../layouts/DocsLayout.astro";
 				<p class="doc__item">Media queries use the breakpoint tokens, mobile-first (<code class="doc__code">min-width</code>).</p>
 			</div>
 		</section>
+
+		<section class="doc__section">
+			<h2 class="doc__section-title">File organization</h2>
+			<p class="doc__lead">
+				Tideway doesn't impose a file layout — it follows whatever convention the project already has.
+			</p>
+			<div class="doc__list">
+				<p class="doc__item">
+					<strong>One component per file</strong> (<code class="doc__code">Tabs.jsx</code>): give it a
+					matching stylesheet (<code class="doc__code">Tabs.css</code>).
+				</p>
+				<p class="doc__item">
+					<strong>Grouped components:</strong> if the project already bundles related components into
+					one file, it's fine to bundle their styles the same way.
+				</p>
+				<p class="doc__item">
+					<strong>Plain CSS with no components to mirror:</strong> organize by purpose
+					(<code class="doc__code">theme.css</code>, <code class="doc__code">layout.css</code>,
+					<code class="doc__code">forms.css</code>) or, for a multi-page project, by page.
+				</p>
+			</div>
+		</section>
 	</article>
 </DocsLayout>
