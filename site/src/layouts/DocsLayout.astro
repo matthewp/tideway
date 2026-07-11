@@ -1,5 +1,6 @@
 ---
 import "../styles/main.css";
+import SearchDialog from "../components/SearchDialog.astro";
 
 const { title, description, active } = Astro.props;
 
@@ -85,6 +86,7 @@ const groups = [
 					<li><a class="site-nav__link" href="https://github.com/matthewp/tideway">GitHub</a></li>
 				</ul>
 				<div class="site-nav__actions">
+					<SearchDialog />
 					<button class="theme-toggle" type="button" data-theme-toggle aria-label="Toggle color theme">
 						<svg class="theme-toggle__icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
 							<circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"></circle>
@@ -133,7 +135,7 @@ const groups = [
 					</details>
 				</aside>
 
-				<main class="docs__main">
+				<main class="docs__main" data-pagefind-body>
 					<slot />
 				</main>
 			</div>
