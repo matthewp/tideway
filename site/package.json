@@ -7,7 +7,7 @@
   },
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build && pagefind --site dist",
+    "build": "astro build && pagefind --site $([ -d dist/client ] && echo dist/client || echo dist)",
     "preview": "astro preview",
     "astro": "astro"
   },
