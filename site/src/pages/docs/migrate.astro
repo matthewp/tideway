@@ -11,9 +11,8 @@ import DocsLayout from "../../layouts/DocsLayout.astro";
 		<p class="doc__eyebrow">Skill</p>
 		<h1 class="doc__title">migrate</h1>
 		<p class="doc__lead">
-			Converts an existing project — Tailwind, plain CSS, or a CSS-in-JS setup — onto Tideway's
-			tokens and BEM. The rendered UI is the fixed point: the CSS underneath changes, the result
-			doesn't.
+			Converts an existing project (Tailwind, plain CSS, or a CSS-in-JS setup) onto Tideway's
+			tokens and BEM. The CSS underneath changes. The pixels stay identical.
 		</p>
 
 		<section class="doc__section">
@@ -28,7 +27,7 @@ import DocsLayout from "../../layouts/DocsLayout.astro";
 					today; other sources fall back to a hand-mapping workflow.
 				</p>
 				<p class="doc__item">
-					Works incrementally — one component at a time, verifying the rendered result matches before
+					Works one component at a time, verifying the rendered result matches before
 					moving on.
 				</p>
 				<p class="doc__item">
@@ -44,11 +43,11 @@ import DocsLayout from "../../layouts/DocsLayout.astro";
 			<h2 class="doc__section-title">Migrating from Tailwind</h2>
 			<p class="doc__text">
 				Tideway's scales are the same scales Tailwind uses, so most utilities map one-to-one to a
-				token — <code class="doc__code">p-6</code> becomes
+				token: <code class="doc__code">p-6</code> becomes
 				<code class="doc__code">padding: var(--space-6)</code>,
 				<code class="doc__code">bg-blue-500</code> becomes
-				<code class="doc__code">background-color: var(--color-blue-500)</code>. The real work is
-				regrouping utilities into BEM classes, not recomputing values.
+				<code class="doc__code">background-color: var(--color-blue-500)</code>. The work is
+				regrouping utilities into BEM classes.
 			</p>
 		</section>
 	</article>

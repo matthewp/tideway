@@ -30,12 +30,12 @@ const skills = [
 	{
 		slug: "/style",
 		href: "/docs/style",
-		body: "Writes CSS from the tokens and strict BEM. The core skill — it kicks in on its own whenever your agent touches a stylesheet.",
+		body: "Writes CSS from the tokens and strict BEM. The core skill. It kicks in on its own whenever your agent touches a stylesheet.",
 	},
 	{
 		slug: "/review",
 		href: "/docs/review",
-		body: "Checks your changes against the conventions — off-scale values, inlined tokens, direct palette use, BEM slips — and reports before it edits.",
+		body: "Checks your changes against the conventions (off-scale values, inlined tokens, direct palette use, BEM slips) and reports before it edits.",
 	},
 	{
 		slug: "/prune",
@@ -45,7 +45,7 @@ const skills = [
 	{
 		slug: "/migrate",
 		href: "/docs/migrate",
-		body: "Lifts an existing project — Tailwind, CSS modules, plain CSS — onto the tokens and BEM without changing how it looks.",
+		body: "Lifts an existing project (Tailwind, CSS modules, plain CSS) onto the tokens and BEM without changing how it looks.",
 	},
 ];
 
@@ -68,7 +68,7 @@ const noLock = [
 	},
 	{
 		lead: "No generated soup",
-		text: "Every selector is a legible, hand-editable BEM class — the same CSS you'd have written by hand.",
+		text: "Every selector is a legible BEM class, the same CSS you'd have written by hand.",
 	},
 	{
 		lead: "Drop it whenever",
@@ -90,9 +90,9 @@ const noLock = [
 		<meta name="generator" content={Astro.generator} />
 		<meta
 			name="description"
-			content="Tideway is a CSS design system your coding agent drives. Give it the skill and it writes consistent, plain CSS — fixed tokens, strict BEM — while you keep vibe coding."
+			content="Tideway is a CSS design system your coding agent drives. Give it the skill and it writes consistent, plain CSS from fixed tokens in strict BEM, while you keep vibe coding."
 		/>
-		<title>Tideway — Own your styles</title>
+		<title>Tideway: Own your styles</title>
 	</head>
 	<body>
 		<header class="site-nav">
@@ -157,15 +157,15 @@ const noLock = [
 			<section class="hero">
 				<div class="hero__inner container">
 					<div class="hero__copy">
-						<span class="hero__eyebrow">An agent skill, not a library</span>
+						<span class="hero__eyebrow">An agent skill</span>
 						<h1 class="hero__title">
 							Own your <span class="hero__title-accent">styles</span>.
 						</h1>
 						<p class="hero__lede">
 							Tideway is a design system your coding agent drives. Hand it the skill
-							and it writes consistent, plain CSS — fixed tokens, strict BEM — while
-							you stay in the flow of vibe coding. No utility classes to learn, no
-							framework to ship.
+							and it writes consistent, plain CSS from fixed tokens in strict BEM,
+							while you stay in the flow of vibe coding. No utility classes to learn,
+							no framework to ship.
 						</p>
 						<div class="hero__actions">
 							<button class="copy-prompt" type="button" data-copy-prompt>
@@ -218,7 +218,7 @@ const noLock = [
 								<span>Write <span class="chat__ref">card.css</span></span>
 							</p>
 							<p class="chat__reply">
-								Added a <span class="chat__ref">.card</span> block —
+								Added a <span class="chat__ref">.card</span> block:
 								<span class="chat__ref">var(--space-6)</span> padding,
 								<span class="chat__ref">var(--radius-lg)</span> corners, and a
 								<span class="chat__ref">var(--shadow-sm)</span>. Strict BEM, every
@@ -235,7 +235,7 @@ const noLock = [
 						<h2 class="features__title">You describe it. Your agent styles it.</h2>
 						<p class="features__lede">
 							Tideway is the rulebook your coding agent follows. You keep working in
-							natural language — it keeps the CSS consistent, on-scale, and yours.
+							natural language. It keeps the CSS consistent, on-scale, and yours.
 						</p>
 					</div>
 					<div class="features__grid">
@@ -276,7 +276,7 @@ const noLock = [
 							</span>
 							<h3 class="feature__title">Plain CSS you own</h3>
 							<p class="feature__body">
-								What ships is a stylesheet — hand-legible, diff-able, dependency-free.
+								What ships is a stylesheet you can read and diff, with no dependency.
 								Drop the skill whenever you like and your styles keep working.
 							</p>
 						</article>
@@ -290,7 +290,7 @@ const noLock = [
 						<p class="section-head__eyebrow">The toolkit</p>
 						<h2 class="section-head__title">Four skills, one workflow</h2>
 						<p class="section-head__lede">
-							Tideway is a set of skills your agent reaches for at each stage — writing
+							Tideway is a set of skills your agent reaches for at each stage: writing
 							styles, checking them, clearing dead rules, and bringing existing code
 							across.
 						</p>
@@ -313,8 +313,8 @@ const noLock = [
 						<p class="section-head__eyebrow">Design tokens</p>
 						<h2 class="section-head__title">Every value comes from a scale</h2>
 						<p class="section-head__lede">
-							Colors, spacing, type, radii, shadows, breakpoints — a fixed vocabulary
-							your agent picks from. No magic numbers, so independently-built screens
+							Colors, spacing, type, radii, shadows, breakpoints: a fixed vocabulary
+							your agent picks from. No magic numbers, so screens built weeks apart
 							still line up.
 						</p>
 					</div>
@@ -378,13 +378,13 @@ const noLock = [
 						<h2 class="section-head__title">Flat classes that never fight</h2>
 						<p class="section-head__lede">
 							Every class is <code>block__element--modifier</code>. One class per
-							selector, specificity always (0,1,0) — no cascade surprises, no
+							selector, specificity always (0,1,0). No cascade surprises, no
 							<code>!important</code>, no nesting yourself into a corner.
 						</p>
 					</div>
 					<div class="compare">
 						<div class="compare__panel">
-							<p class="compare__label">Without a convention — specificity you'll fight later</p>
+							<p class="compare__label">Without a convention: specificity you'll fight later</p>
 							<pre class="compare__code"><code><span class="compare__bad">#sidebar</span> .card .title &#123;
   color: <span class="compare__bad">#1e293b !important</span>;
 &#125;
@@ -398,7 +398,7 @@ const noLock = [
 &#125;</code></pre>
 						</div>
 						<div class="compare__panel compare__panel--after">
-							<p class="compare__label compare__label--after">The Tideway way — flat, (0,1,0) every time</p>
+							<p class="compare__label compare__label--after">The Tideway way: flat, (0,1,0) every time</p>
 							<pre class="compare__code"><code>.card__title &#123;
   font-size: <span class="compare__token">var(--text-lg)</span>;
   color: <span class="compare__token">var(--text)</span>;
@@ -422,8 +422,8 @@ const noLock = [
 						<p class="section-head__eyebrow">Theming</p>
 						<h2 class="section-head__title">Re-theme from one file</h2>
 						<p class="section-head__lede">
-							Components read color from semantic roles — <code>--surface</code>,
-							<code>--text</code>, <code>--accent</code> — never the palette directly.
+							Components read color from semantic roles (<code>--surface</code>,
+							<code>--text</code>, <code>--accent</code>), never the palette directly.
 							Redefine the role layer and the whole app changes.
 						</p>
 					</div>
@@ -434,7 +434,7 @@ const noLock = [
 									<svg class="theming__check" viewBox="0 0 24 24" fill="none" aria-hidden="true">
 										<path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
 									</svg>
-									<span>Components reference roles, so dark mode or a full rebrand lands everywhere at once — without touching a component.</span>
+									<span>Components reference roles, so dark mode or a full rebrand lands everywhere at once, without touching a component.</span>
 								</p>
 								<p class="theming__point">
 									<svg class="theming__check" viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -449,7 +449,7 @@ const noLock = [
 									<span>Auto mode follows the operating system with zero JavaScript. A remembered toggle needs only a few lines.</span>
 								</p>
 							</div>
-							<p class="theming__note">Try the toggle in the header — it flips this whole page.</p>
+							<p class="theming__note">Try the toggle in the header. It flips this whole page.</p>
 						</div>
 
 						<div class="code-card">
@@ -489,16 +489,16 @@ const noLock = [
 			<section class="showcase">
 				<div class="showcase__inner container">
 					<div class="showcase__copy">
-						<p class="showcase__eyebrow">What you're left with</p>
+						<p class="showcase__eyebrow">The output</p>
 						<h2 class="showcase__title">Plain CSS, yours to keep</h2>
 						<p class="showcase__lede">
 							Tideway generates nothing at build time. What lands in your repo is a
-							stylesheet you can read, diff, and hand-edit — the same CSS your agent
+							stylesheet you can read, diff, and hand-edit, the same CSS your agent
 							wrote, following the tokens and BEM.
 						</p>
 						<div class="showcase__points">
 							<p class="showcase__point">Every value is a token reference, so the whole app re-themes from one file.</p>
-							<p class="showcase__point">Flat, single-class selectors — no specificity wars, no <code>!important</code>.</p>
+							<p class="showcase__point">Flat, single-class selectors, so no specificity wars and no <code>!important</code>.</p>
 							<p class="showcase__point">Drop the skill any time and the stylesheet keeps working on its own.</p>
 						</div>
 					</div>
@@ -547,13 +547,13 @@ const noLock = [
 						<h2 class="section-head__title">From utility soup to CSS you can read</h2>
 						<p class="section-head__lede">
 							Point <code>/migrate</code> at an existing project and it lifts the
-							styling onto Tideway — the same pixels, legible output. The classes leave
-							your markup and become a stylesheet.
+							styling onto Tideway: the same pixels, legible output. Your markup keeps
+							one class per element and the rest lands in a stylesheet.
 						</p>
 					</div>
 					<div class="compare">
 						<div class="compare__panel">
-							<p class="compare__label">Before — styling tangled into the markup</p>
+							<p class="compare__label">Before: styling tangled into the markup</p>
 							<pre class="compare__code"><code>&lt;article class=<span class="compare__muted">"max-w-sm p-6 rounded-lg
   border border-slate-200 shadow-sm
   bg-white hover:shadow-md"</span>&gt;
@@ -564,7 +564,7 @@ const noLock = [
 &lt;/article&gt;</code></pre>
 						</div>
 						<div class="compare__panel compare__panel--after">
-							<p class="compare__label compare__label--after">After — semantic markup, styles in card.css</p>
+							<p class="compare__label compare__label--after">After: semantic markup, styles in card.css</p>
 							<pre class="compare__code"><code>&lt;article class="<span class="compare__token">card</span>"&gt;
   &lt;h2 class="<span class="compare__token">card__title</span>"&gt;Tideway&lt;/h2&gt;
   &lt;p class="<span class="compare__token">card__body</span>"&gt;
@@ -582,8 +582,8 @@ const noLock = [
 						<p class="section-head__eyebrow">No lock-in</p>
 						<h2 class="section-head__title">Nothing to be trapped by</h2>
 						<p class="section-head__lede">
-							Tideway is a convention your agent follows, not a package your app
-							depends on. There's nothing in your bundle and nothing to rip out later.
+							Tideway is a convention your agent follows. Your app depends on nothing,
+							so there's nothing in your bundle and nothing to rip out later.
 						</p>
 					</div>
 					<div class="no-lock__grid">
@@ -608,7 +608,7 @@ const noLock = [
 						<h2 class="cta-band__title">Point your agent at Tideway</h2>
 						<p class="cta-band__lede">
 							Copy the prompt, paste it into your coding agent, and start shipping
-							CSS that stays consistent — and stays yours.
+							CSS that stays consistent and stays yours.
 						</p>
 						<div class="cta-band__actions">
 							<button class="button button--light button--large" type="button" data-copy-prompt>

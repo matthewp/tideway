@@ -13,7 +13,7 @@ import DocsLayout from "../../layouts/DocsLayout.astro";
 		<p class="doc__lead">
 			Tideway ships as agent skills. Install them into any coding agent with the generic
 			<code class="doc__code">skills</code> CLI, or add them as a plugin in Claude Code. Or skip the
-			CLI entirely and let your agent set it up from
+			CLI and let your agent set it up from
 			<a class="doc__link" href="/start.md">start.md</a>.
 		</p>
 
@@ -21,12 +21,12 @@ import DocsLayout from "../../layouts/DocsLayout.astro";
 			<h2 class="doc__section-title">Any coding agent</h2>
 			<p class="doc__text">
 				The <code class="doc__code">skills</code> CLI installs Tideway's skills into whatever agent
-				you use — Cursor, Codex, opencode, Windsurf, and dozens of others. It reads them straight from
+				you use: Cursor, Codex, opencode, Windsurf, and dozens of others. It reads them straight from
 				the GitHub repo, no npm package involved. From your project root:
 			</p>
 			<pre class="doc__pre"><code>npx skills add matthewp/tideway</code></pre>
 			<p class="doc__text">
-				That adds all four skills — <code class="doc__code">style</code>,
+				That adds all four skills: <code class="doc__code">style</code>,
 				<code class="doc__code">review</code>, <code class="doc__code">prune</code>, and
 				<code class="doc__code">migrate</code>. To see what's in the repo first, or to add just one:
 			</p>
@@ -57,7 +57,7 @@ npx skills add matthewp/tideway <span class="doc__flag">--skill</span> style</co
 			<pre class="doc__pre"><code>/plugin marketplace add matthewp/tideway
 /plugin install tideway@tideway</code></pre>
 			<p class="doc__text">
-				Developing against a local checkout instead? Start Claude Code pointed at the plugin directory:
+				To develop against a local checkout, start Claude Code pointed at the plugin directory:
 			</p>
 			<pre class="doc__pre"><code>claude --plugin-dir /path/to/tideway</code></pre>
 			<p class="doc__text">
@@ -72,7 +72,7 @@ npx skills add matthewp/tideway <span class="doc__flag">--skill</span> style</co
 			<h2 class="doc__section-title">Next</h2>
 			<div class="doc__list">
 				<p class="doc__item">
-					Create a <code class="doc__code">tokens.css</code> and start styling — the
+					Create a <code class="doc__code">tokens.css</code> and start styling. The
 					<a class="doc__link" href="/docs/style">style skill</a> covers the rules and workflow.
 				</p>
 				<p class="doc__item">

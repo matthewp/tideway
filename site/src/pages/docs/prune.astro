@@ -28,25 +28,24 @@ import DocsLayout from "../../layouts/DocsLayout.astro";
 					<strong>Possibly dynamic</strong> (see below).
 				</p>
 				<p class="doc__item">
-					Findings are reported first; classes are removed only on your go-ahead, and it's safe to do
+					It reports findings first and removes classes only on your go-ahead, which is safe to do
 					under version control.
 				</p>
 			</div>
 		</section>
 
 		<section class="doc__section">
-			<h2 class="doc__section-title">The one caveat: dynamic class names</h2>
+			<h2 class="doc__section-title">Dynamic class names</h2>
 			<p class="doc__text">
-				A class can be live without its full name ever appearing in the source — when markup builds it
+				A class can be live without its full name ever appearing in the source, when markup builds it
 				at runtime: <code class="doc__code">`card--$&#123;variant&#125;`</code>,
 				<code class="doc__code">clsx("card", isOpen &amp;&amp; "card--open")</code>, or other string
 				construction. Such a class looks unused to a text search.
 			</p>
 			<p class="doc__text">
 				The detector flags these as <strong>Possibly dynamic</strong>: the exact name isn't found, but
-				its prefix (<code class="doc__code">card--</code>) does appear. These are never removed on the
-				report alone — the construction site is checked first to confirm the full name can't be
-				produced there.
+				its prefix (<code class="doc__code">card--</code>) does appear. It checks the construction site
+				before removing any of these, confirming the full name can't be produced there.
 			</p>
 		</section>
 	</article>
